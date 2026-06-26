@@ -1,4 +1,5 @@
 import Reveal, { SectionHeading } from './Reveal'
+import { asset } from '../lib/asset'
 import { Drop, Home, Layers, Japan, Hand, Check } from './icons'
 
 const cards = [
@@ -54,7 +55,7 @@ export default function WhyKangen() {
             ].map((f) => (
               <div key={f.label} className="group relative overflow-hidden rounded-2xl border border-slate-100 shadow-soft">
                 {/* TODO: swap these conceptual images for final brand imagery if needed */}
-                <img src={f.img} alt={f.label} className="h-44 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                <img src={asset(f.img)} alt={f.label} className="h-44 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
                 <span className="absolute bottom-3 left-3 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-brand-700 backdrop-blur">
                   {f.label}
                 </span>

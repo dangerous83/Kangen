@@ -1,5 +1,6 @@
 import { CONSULTANT, WHATSAPP_LINK, PHONE_LINK, NAV_LINKS } from '../data/site'
 import { useLeadModal } from '../context/LeadModalContext'
+import { asset } from '../lib/asset'
 import { WhatsApp, Phone } from './icons'
 
 const quickLinks = [
@@ -22,7 +23,7 @@ export default function Footer() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand / consultant */}
           <div>
-            <img src="/assets/logo.png" alt="Enagic Kangen Water logo" className="h-9 w-auto" />
+            <img src={asset('/assets/logo.png')} alt="Enagic Kangen Water logo" className="h-9 w-auto" />
             <p className="mt-5 text-lg font-bold text-brand-700">{CONSULTANT.name}</p>
             <p className="text-sm text-slate-500">Enagic / Kangen Water Consultant</p>
             <a href={PHONE_LINK} className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-brand-600 hover:text-brand-700">
