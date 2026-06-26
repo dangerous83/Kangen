@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { NAV_LINKS, WHATSAPP_LINK } from '../data/site'
 import { useLeadModal } from '../context/LeadModalContext'
+import { asset } from '../lib/asset'
 import { Menu, Close, WhatsApp } from './icons'
 
 export default function Header() {
@@ -35,7 +36,7 @@ export default function Header() {
         {/* Logo */}
         <a href="#home" className="flex items-center gap-3" aria-label="Glen Apostol — Kangen Water Consultant">
           {/* TODO: replace /assets/logo.png with the official logo if updated */}
-          <img src="/assets/logo.png" alt="Enagic Kangen Water logo" className="h-8 w-auto" />
+          <img src={asset('/assets/logo.png')} alt="Enagic Kangen Water logo" className="h-8 w-auto" />
           <span className="hidden text-sm font-semibold leading-tight text-brand-700 sm:block">
             Glen Apostol
             <span className="block text-[0.68rem] font-medium uppercase tracking-wider text-gold-dark">

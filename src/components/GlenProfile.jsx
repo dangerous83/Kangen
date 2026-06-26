@@ -1,6 +1,7 @@
 import Reveal from './Reveal'
 import { CONSULTANT, WHATSAPP_LINK, PHONE_LINK } from '../data/site'
 import { useLeadModal } from '../context/LeadModalContext'
+import { asset } from '../lib/asset'
 import { Phone, WhatsApp, Check, Hand, Layers, Shield, Sparkle } from './icons'
 
 const highlights = [
@@ -23,7 +24,7 @@ export default function GlenProfile() {
             <div className="overflow-hidden rounded-[1.75rem] border-2 border-gold/30 bg-white shadow-card">
               {/* TODO: replace with a dedicated Glen profile photo if available */}
               <img
-                src="/assets/glen-apostol.png"
+                src={asset('/assets/glen-apostol.png')}
                 alt="Portrait of Glen Apostol, Enagic Kangen Water consultant"
                 className="h-full w-full object-cover"
                 loading="lazy"

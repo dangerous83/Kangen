@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { WHATSAPP_LINK } from '../data/site'
 import { useLeadModal } from '../context/LeadModalContext'
+import { asset } from '../lib/asset'
 import { Check, WhatsApp, Drop, Shield, MapPin, Hand } from './icons'
 
 const trustBadges = [
@@ -113,7 +114,7 @@ export default function Hero() {
           <div className="overflow-hidden rounded-[1.75rem] border border-slate-100 shadow-[0_30px_70px_-30px_rgba(2,79,158,0.45)]">
             {/* TODO: replace /assets/glen-apostol.png with the final hero image */}
             <img
-              src="/assets/glen-apostol.png"
+              src={asset('/assets/glen-apostol.png')}
               alt="Glen Apostol, professional Enagic Kangen Water consultant, in a modern Dubai office"
               className="h-full w-full object-cover"
               loading="eager"

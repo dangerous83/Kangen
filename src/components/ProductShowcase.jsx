@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import Reveal, { SectionHeading } from './Reveal'
 import { products } from '../data/products'
 import { useLeadModal } from '../context/LeadModalContext'
+import { asset } from '../lib/asset'
 import { Check, ArrowRight } from './icons'
 
 export default function ProductShowcase() {
@@ -30,7 +31,7 @@ export default function ProductShowcase() {
                 <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-b from-brand-50/60 to-white">
                   {/* TODO: replace placeholder product images in data/products.js with real photos */}
                   <img
-                    src={p.image}
+                    src={asset(p.image)}
                     alt={`${p.name} water ionizer`}
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
