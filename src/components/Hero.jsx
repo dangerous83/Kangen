@@ -2,14 +2,7 @@ import { motion } from 'framer-motion'
 import { WHATSAPP_LINK } from '../data/site'
 import { useLeadModal } from '../context/LeadModalContext'
 import { asset } from '../lib/asset'
-import { WhatsApp, Drop, Shield, MapPin, Hand } from './icons'
-
-const trustBadges = [
-  { icon: Hand, label: 'Personal Product Guidance' },
-  { icon: Drop, label: 'Premium Water Ionizers' },
-  { icon: MapPin, label: 'UAE Support' },
-  { icon: Shield, label: 'Direct Consultant Assistance' },
-]
+import { WhatsApp } from './icons'
 
 export default function Hero() {
   const { openLead } = useLeadModal()
@@ -19,116 +12,84 @@ export default function Hero() {
     // so the background image fills the entire screen.
     <section
       id="home"
-      className="relative -mt-[4.5rem] flex min-h-screen items-center overflow-hidden"
+      className="relative -mt-[4.5rem] flex min-h-screen items-end overflow-hidden md:items-center"
     >
-      {/* Full-bleed background image of Glen Apostol */}
-      <div className="absolute inset-0">
+      {/* Full-bleed background image of Glen Apostol — kept clean (no wash on his face) */}
+      <div className="absolute inset-0 -z-10">
         {/* TODO: replace /assets/glen-apostol.png with the final hero image */}
         <img
           src={asset('/assets/glen-apostol.png')}
           alt="Glen Apostol, professional Enagic Kangen Water consultant, in a modern Dubai office"
-          className="h-full w-full object-cover object-[72%_center]"
+          className="h-full w-full object-cover object-[72%_22%] md:object-[74%_center]"
           loading="eager"
         />
-        {/* White scrim on the left so the brand-blue text stays legible */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-transparent md:via-white/75 md:to-transparent" />
-        {/* Soft vertical fade for extra contrast on mobile */}
-        <div className="absolute inset-0 bg-gradient-to-t from-white/70 via-transparent to-white/30 md:from-transparent md:to-transparent" />
-        {/* Subtle brand-color wash */}
-        <div className="pointer-events-none absolute inset-0 water-gradient opacity-60" />
+        {/* MOBILE: gentle white fade from the bottom only — keeps his face (top) crisp */}
+        <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent md:hidden" />
+        {/* DESKTOP: white fade on the left only, fully transparent before it reaches Glen */}
+        <div className="absolute inset-0 hidden md:block md:bg-gradient-to-r md:from-white md:from-0% md:via-white/60 md:via-[26%] md:to-transparent md:to-[52%]" />
       </div>
 
       {/* Content */}
-      <div className="container-px relative w-full pb-16 pt-[6rem] sm:pt-[7rem]">
-        <div className="max-w-xl">
+      <div className="container-px relative w-full pb-14 pt-[6rem] md:py-0">
+        <div className="max-w-lg">
           <motion.span
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="eyebrow bg-white/80 backdrop-blur"
+            className="eyebrow bg-white/70 backdrop-blur"
           >
             ★ Trusted Enagic / Kangen Water Consultant
           </motion.span>
 
           <motion.h1
-            initial={{ opacity: 0, y: 22 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.08 }}
-            className="mt-6 text-4xl font-extrabold leading-[1.08] tracking-tight text-brand-700 drop-shadow-sm sm:text-5xl lg:text-[3.4rem]"
+            className="mt-6 text-4xl font-extrabold leading-[1.07] tracking-tight text-brand-700 sm:text-5xl lg:text-[3.5rem]"
           >
-            Change Your Water.{' '}
-            <span className="relative whitespace-nowrap text-brand-600">
-              Change Your
-              <span className="absolute -bottom-1 left-0 h-[6px] w-full rounded-full bg-gold/70" />
-            </span>{' '}
-            Daily Life.
+            Change Your Water.
+            <span className="mt-1 block text-brand-600">
+              Change Your{' '}
+              <span className="relative whitespace-nowrap">
+                Daily Life.
+                <span className="absolute -bottom-1 left-0 h-[5px] w-full rounded-full bg-gold/70" />
+              </span>
+            </span>
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 22 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.16 }}
-            className="mt-6 max-w-lg text-lg font-medium leading-relaxed text-slate-700"
+            className="mt-6 max-w-md text-lg leading-relaxed text-slate-700"
           >
-            Discover premium Kangen Water machines with personal guidance from{' '}
-            <strong className="font-bold text-brand-700">Glen Apostol</strong>, your dedicated Enagic
-            consultant.
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, y: 22 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.22 }}
-            className="mt-3 max-w-md text-base text-slate-600"
-          >
-            Expert product advice, machine comparison, setup guidance, and direct support before you
-            purchase.
+            Premium Kangen Water machines with personal guidance from{' '}
+            <strong className="font-semibold text-brand-700">Glen Apostol</strong> — expert advice
+            and machine comparison before you buy.
           </motion.p>
 
           {/* CTAs */}
           <motion.div
-            initial={{ opacity: 0, y: 22 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-9 flex flex-col gap-3 sm:flex-row"
+            transition={{ duration: 0.6, delay: 0.26 }}
+            className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center"
           >
-            <button onClick={() => openLead()} className="btn-primary text-base">
-              Book a Free Water Consultation
+            <button onClick={() => openLead()} className="btn-primary">
+              Book a Free Consultation
             </button>
-            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="btn-whatsapp text-base">
+            <a
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-full px-5 py-3.5 text-sm font-semibold text-wellness-dark transition-colors hover:text-wellness"
+            >
               <WhatsApp className="h-5 w-5" />
               Message Glen on WhatsApp
             </a>
           </motion.div>
-
-          {/* Trust badges */}
-          <motion.ul
-            initial={{ opacity: 0, y: 22 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.38 }}
-            className="mt-10 flex flex-wrap gap-x-6 gap-y-3"
-          >
-            {trustBadges.map(({ icon: Icon, label }) => (
-              <li key={label} className="flex items-center gap-2 text-sm font-semibold text-slate-700">
-                <span className="flex h-8 w-8 flex-none items-center justify-center rounded-lg bg-wellness/15 text-wellness-dark">
-                  <Icon className="h-4 w-4" />
-                </span>
-                {label}
-              </li>
-            ))}
-          </motion.ul>
         </div>
       </div>
-
-      {/* Floating "free consultation" pill, bottom-right */}
-      <motion.div
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.5 }}
-        className="absolute bottom-8 right-6 hidden rounded-full border border-gold/30 bg-white/90 px-5 py-2.5 text-sm font-semibold text-gold-dark shadow-gold backdrop-blur lg:block"
-      >
-        Free consultation • No obligation
-      </motion.div>
     </section>
   )
 }
