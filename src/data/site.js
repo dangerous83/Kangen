@@ -39,6 +39,7 @@ export const NAV_LINKS = [
     children: [
       { label: 'All Machines', to: '/products', desc: 'Browse the full Enagic range' },
       { label: 'Compare Machines', to: '/compare', desc: 'Side-by-side comparison' },
+      { label: 'Other Products', to: '/other-products', desc: 'Anespa, filters, Ukon, Beauté & Wagyu' },
     ],
   },
   {
@@ -59,6 +60,7 @@ export const ALL_PAGES = [
   { label: '5 Water Types', to: '/water-types' },
   { label: 'All Machines', to: '/products' },
   { label: 'Compare Machines', to: '/compare' },
+  { label: 'Other Products', to: '/other-products' },
   { label: 'Meet Glen', to: '/glen-apostol' },
   { label: 'How It Works', to: '/process' },
   { label: 'Testimonials', to: '/testimonials' },

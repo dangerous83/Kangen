@@ -1,6 +1,6 @@
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { products, machines } from '../data/products'
+import { products, machines, otherProducts } from '../data/products'
 import { WHATSAPP_LINK } from '../data/site'
 import { useLeadModal } from '../context/LeadModalContext'
 import { asset } from '../lib/asset'
@@ -12,6 +12,14 @@ const sharedBenefits = [
   'After-sales support, filters & supplies',
   'Honest advice before you buy — no pressure',
 ]
+
+// Falls back to the logo if a product photo hasn't been added yet.
+const onImgError = (e) => {
+  if (e.currentTarget.dataset.fallback) return
+  e.currentTarget.dataset.fallback = '1'
+  e.currentTarget.src = asset('/assets/logo.png')
+  e.currentTarget.classList.add('opacity-50', 'p-8')
+}
 
 export default function ProductDetail() {
   const { id } = useParams()
@@ -27,15 +35,22 @@ export default function ProductDetail() {
     { label: 'Usage Type', value: product.usage },
   ]
 
-  const related = machines.filter((p) => p.id !== product.id).slice(0, 3)
+  // Machines and other products live in separate collections, so the
+  // breadcrumb and "related" list stay within the right group.
+  const isMachine = machines.some((m) => m.id === product.id)
+  const collection = isMachine ? machines : otherProducts
+  const catalogue = isMachine
+    ? { to: '/products', label: 'All Machines' }
+    : { to: '/other-products', label: 'Other Products' }
+  const related = collection.filter((p) => p.id !== product.id).slice(0, 3)
 
   return (
     <article className="section-pad bg-white">
       <div className="container-px">
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-sm text-slate-400" aria-label="Breadcrumb">
-          <Link to="/products" className="font-medium text-brand-600 hover:text-brand-700">
-            All Machines
+          <Link to={catalogue.to} className="font-medium text-brand-600 hover:text-brand-700">
+            {catalogue.label}
           </Link>
           <span>/</span>
           <span className="text-slate-500">{product.name}</span>
@@ -53,7 +68,8 @@ export default function ProductDetail() {
             <div className="flex aspect-[16/9] items-center justify-center overflow-hidden rounded-[1.75rem] border border-slate-100 bg-gradient-to-b from-brand-50/50 to-white p-5 shadow-card">
               <img
                 src={asset(product.image)}
-                alt={`${product.name} water ionizer`}
+                onError={onImgError}
+                alt={product.name}
                 className="h-full w-full object-contain"
               />
             </div>
@@ -212,9 +228,11 @@ export default function ProductDetail() {
           </motion.section>
         )}
 
-        {/* Related machines */}
+        {/* Related items */}
         <div className="mt-20">
-          <h2 className="text-2xl font-bold text-brand-700">Other machines to consider</h2>
+          <h2 className="text-2xl font-bold text-brand-700">
+            {isMachine ? 'Other machines to consider' : 'More from the range'}
+          </h2>
           <div className="mt-6 grid gap-6 sm:grid-cols-3">
             {related.map((p) => (
               <Link
@@ -225,6 +243,7 @@ export default function ProductDetail() {
                 <div className="flex aspect-[16/9] items-center justify-center overflow-hidden bg-brand-50/40 p-3">
                   <img
                     src={asset(p.image)}
+                    onError={onImgError}
                     alt={p.name}
                     className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
                   />
