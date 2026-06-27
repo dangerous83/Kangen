@@ -124,7 +124,7 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.25 }}
-            className="absolute inset-x-0 top-[4.5rem] max-h-[calc(100vh-4.5rem)] origin-top overflow-y-auto border-b border-slate-200 bg-white/97 backdrop-blur-xl lg:hidden"
+            className="absolute inset-x-0 top-[4.5rem] max-h-[calc(100vh-4.5rem)] origin-top overflow-y-auto border-b border-slate-200 bg-white/80 backdrop-blur-xl lg:hidden"
           >
             <ul className="container-px flex flex-col gap-1 py-5">
               {NAV_LINKS.map((item, i) => (
