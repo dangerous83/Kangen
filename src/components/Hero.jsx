@@ -11,9 +11,8 @@ export default function Hero() {
     // On desktop the section sits under the fixed navbar so the image is full-bleed.
     <section id="home" className="relative overflow-hidden bg-white md:-mt-[4.5rem]">
       {/* Full, UNCROPPED image of Glen Apostol — the hero background */}
-      {/* TODO: replace /assets/glen-apostol.png with the final hero image */}
       <img
-        src={asset('/assets/glen-apostol.png')}
+        src={asset('/assets/glen-apostol-hero.webp')}
         alt="Glen Apostol, professional Enagic Kangen Water consultant, in a modern Dubai office"
         className="block w-full"
         loading="eager"
