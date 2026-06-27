@@ -11,6 +11,7 @@ import Home from './pages/Home'
 import WhyKangenPage from './pages/WhyKangenPage'
 import WaterTypesPage from './pages/WaterTypesPage'
 import ProductsPage from './pages/ProductsPage'
+import OtherProducts from './pages/OtherProducts'
 import ProductDetail from './pages/ProductDetail'
 import ComparePage from './pages/ComparePage'
 import GlenPage from './pages/GlenPage'
@@ -46,6 +47,7 @@ export default function App() {
             <Route path="/why-kangen" element={<WhyKangenPage />} />
             <Route path="/water-types" element={<WaterTypesPage />} />
             <Route path="/products" element={<ProductsPage />} />
+            <Route path="/other-products" element={<OtherProducts />} />
             <Route path="/products/:id" element={<ProductDetail />} />
             <Route path="/compare" element={<ComparePage />} />
             <Route path="/glen-apostol" element={<GlenPage />} />
