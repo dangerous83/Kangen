@@ -8,35 +8,19 @@ export default function Hero() {
   const { openLead } = useLeadModal()
 
   return (
-    // Full-viewport hero. Negative top margin pulls it under the fixed navbar
-    // so the background image fills the entire screen.
-    <section
-      id="home"
-      className="relative -mt-[4.5rem] flex min-h-screen items-end overflow-hidden md:items-center"
-    >
-      {/* Full-bleed background image of Glen Apostol — kept clean (no wash on his face) */}
-      <div className="absolute inset-0 -z-10">
-        {/* TODO: replace /assets/glen-apostol.png with the final hero image */}
-        <img
-          src={asset('/assets/glen-apostol.png')}
-          alt="Glen Apostol, professional Enagic Kangen Water consultant, in a modern Dubai office"
-          className="h-full w-full object-cover object-[72%_22%] md:object-[74%_center]"
-          loading="eager"
-        />
-        {/* MOBILE: gentle white fade from the bottom only — keeps his face (top) crisp */}
-        <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent md:hidden" />
-        {/* DESKTOP: white fade on the left only, fully transparent before it reaches Glen */}
-        <div className="absolute inset-0 hidden md:block md:bg-gradient-to-r md:from-white md:from-0% md:via-white/60 md:via-[26%] md:to-transparent md:to-[52%]" />
-      </div>
+    <section id="home" className="relative overflow-hidden bg-white">
+      {/* Soft brand-color wash in the background */}
+      <div className="pointer-events-none absolute inset-0 water-gradient" />
+      <div className="pointer-events-none absolute -right-24 top-10 h-80 w-80 rounded-full bg-brand-400/10 blur-3xl" />
 
-      {/* Content */}
-      <div className="container-px relative w-full pb-14 pt-[6rem] md:py-0">
-        <div className="max-w-lg">
+      <div className="container-px relative grid items-center gap-10 py-12 lg:grid-cols-[1.05fr_1fr] lg:gap-14 lg:py-16">
+        {/* Left — copy */}
+        <div className="max-w-xl lg:pr-6">
           <motion.span
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="eyebrow bg-white/70 backdrop-blur"
+            className="eyebrow"
           >
             ★ Trusted Enagic / Kangen Water Consultant
           </motion.span>
@@ -45,7 +29,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.08 }}
-            className="mt-6 text-4xl font-extrabold leading-[1.07] tracking-tight text-brand-700 sm:text-5xl lg:text-[3.5rem]"
+            className="mt-6 text-4xl font-extrabold leading-[1.07] tracking-tight text-brand-700 sm:text-5xl lg:text-[3.4rem]"
           >
             Change Your Water.
             <span className="mt-1 block text-brand-600">
@@ -61,7 +45,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.16 }}
-            className="mt-6 max-w-md text-lg leading-relaxed text-slate-700"
+            className="mt-6 max-w-md text-lg leading-relaxed text-slate-600"
           >
             Premium Kangen Water machines with personal guidance from{' '}
             <strong className="font-semibold text-brand-700">Glen Apostol</strong> — expert advice
@@ -82,13 +66,39 @@ export default function Hero() {
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full px-5 py-3.5 text-sm font-semibold text-wellness-dark transition-colors hover:text-wellness"
+              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-wellness/30 bg-wellness/5 px-6 py-3.5 text-sm font-semibold text-wellness-dark transition-all hover:border-wellness hover:bg-wellness/10"
             >
               <WhatsApp className="h-5 w-5" />
               Message Glen on WhatsApp
             </a>
           </motion.div>
         </div>
+
+        {/* Right — framed image of Glen (head fully visible, padded from edges) */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.97, y: 18 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          className="relative mx-auto w-full max-w-md lg:max-w-none"
+        >
+          {/* Gold glow accent */}
+          <div className="absolute -inset-3 -z-10 rounded-[2rem] bg-gradient-to-br from-gold/25 via-transparent to-brand-400/20 blur-2xl" />
+          <div className="overflow-hidden rounded-[1.75rem] border border-slate-100 shadow-[0_30px_70px_-30px_rgba(2,79,158,0.4)]">
+            {/* TODO: replace /assets/glen-apostol.png with the final hero image */}
+            <img
+              src={asset('/assets/glen-apostol.png')}
+              alt="Glen Apostol, professional Enagic Kangen Water consultant, in a modern Dubai office"
+              className="h-[24rem] w-full object-cover object-[68%_top] sm:h-[30rem] lg:h-[34rem]"
+              loading="eager"
+            />
+          </div>
+
+          {/* Floating credential chip */}
+          <div className="absolute -bottom-5 left-4 rounded-2xl border border-slate-100 bg-white/95 px-5 py-3 shadow-card backdrop-blur">
+            <p className="text-base font-extrabold text-brand-600">Glen Apostol</p>
+            <p className="text-xs font-medium text-gold-dark">Your dedicated Kangen consultant</p>
+          </div>
+        </motion.div>
       </div>
     </section>
   )
