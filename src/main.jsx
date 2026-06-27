@@ -10,18 +10,18 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 )
 
 // Fade out the fresh-water splash screen once the app has mounted.
-// Keep it visible for a brief minimum so it reads as a polished intro
-// rather than a flash.
+// Show it for a fixed 2 seconds (measured from when the app is ready and
+// the splash is actually on screen) so the animation always plays fully
+// and reads as a polished intro rather than a flash.
 const loader = document.getElementById('app-loader')
 if (loader) {
-  const MIN_VISIBLE_MS = 2000
+  const VISIBLE_MS = 2000
   const hide = () => {
     loader.classList.add('is-hidden')
     loader.addEventListener('transitionend', () => loader.remove(), { once: true })
     // Fallback removal in case the transition event doesn't fire.
     setTimeout(() => loader.remove(), 1000)
   }
-  requestAnimationFrame(() =>
-    setTimeout(hide, Math.max(0, MIN_VISIBLE_MS - performance.now())),
-  )
+  // Wait for first paint, then keep the splash up for the full duration.
+  requestAnimationFrame(() => setTimeout(hide, VISIBLE_MS))
 }
