@@ -1,6 +1,6 @@
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { products } from '../data/products'
+import { products, machines } from '../data/products'
 import { WHATSAPP_LINK } from '../data/site'
 import { useLeadModal } from '../context/LeadModalContext'
 import { asset } from '../lib/asset'
@@ -27,7 +27,7 @@ export default function ProductDetail() {
     { label: 'Usage Type', value: product.usage },
   ]
 
-  const related = products.filter((p) => p.id !== product.id && p.id !== 'filters').slice(0, 3)
+  const related = machines.filter((p) => p.id !== product.id).slice(0, 3)
 
   return (
     <article className="section-pad bg-white">
@@ -50,12 +50,11 @@ export default function ProductDetail() {
             className="relative"
           >
             <div className="absolute -inset-3 -z-10 rounded-[2rem] bg-gradient-to-br from-gold/20 to-brand-400/15 blur-2xl" />
-            <div className="overflow-hidden rounded-[1.75rem] border border-slate-100 bg-gradient-to-b from-brand-50/50 to-white shadow-card">
-              {/* TODO: replace placeholder product images in data/products.js */}
+            <div className="flex aspect-[16/9] items-center justify-center overflow-hidden rounded-[1.75rem] border border-slate-100 bg-gradient-to-b from-brand-50/50 to-white p-5 shadow-card">
               <img
                 src={asset(product.image)}
                 alt={`${product.name} water ionizer`}
-                className="h-full w-full object-cover"
+                className="h-full w-full object-contain"
               />
             </div>
           </motion.div>
@@ -223,11 +222,11 @@ export default function ProductDetail() {
                 to={`/products/${p.id}`}
                 className="group overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-card transition-all hover:-translate-y-1.5 hover:shadow-soft"
               >
-                <div className="aspect-[4/3] overflow-hidden bg-brand-50/40">
+                <div className="flex aspect-[16/9] items-center justify-center overflow-hidden bg-brand-50/40 p-3">
                   <img
                     src={asset(p.image)}
                     alt={p.name}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
                 <div className="p-5">
