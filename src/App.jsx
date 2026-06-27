@@ -1,20 +1,23 @@
 import { useCallback, useState } from 'react'
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { LeadModalContext } from './context/LeadModalContext'
+import ScrollToTop from './components/ScrollToTop'
 import Header from './components/Header'
-import Hero from './components/Hero'
-import GlenProfile from './components/GlenProfile'
-import WhyKangen from './components/WhyKangen'
-import ProductShowcase from './components/ProductShowcase'
-import ProductComparison from './components/ProductComparison'
-import WaterTypes from './components/WaterTypes'
-import BusinessOpportunity from './components/BusinessOpportunity'
-import Testimonials from './components/Testimonials'
-import Process from './components/Process'
-import FAQ from './components/FAQ'
-import FinalCTA from './components/FinalCTA'
 import Footer from './components/Footer'
 import LeadFormModal from './components/LeadFormModal'
 import MobileStickyCTA from './components/MobileStickyCTA'
+
+import Home from './pages/Home'
+import WhyKangenPage from './pages/WhyKangenPage'
+import WaterTypesPage from './pages/WaterTypesPage'
+import ProductsPage from './pages/ProductsPage'
+import ComparePage from './pages/ComparePage'
+import GlenPage from './pages/GlenPage'
+import ProcessPage from './pages/ProcessPage'
+import BusinessPage from './pages/BusinessPage'
+import TestimonialsPage from './pages/TestimonialsPage'
+import FAQPage from './pages/FAQPage'
+import ContactPage from './pages/ContactPage'
 
 export default function App() {
   const [modalOpen, setModalOpen] = useState(false)
@@ -30,27 +33,34 @@ export default function App() {
   const closeLead = useCallback(() => setModalOpen(false), [])
 
   return (
-    <LeadModalContext.Provider value={{ openLead }}>
-      <Header />
+    // HashRouter keeps deep links working on GitHub Pages (no server config needed)
+    <HashRouter>
+      <LeadModalContext.Provider value={{ openLead }}>
+        <ScrollToTop />
+        <Header />
 
-      <main>
-        <Hero />
-        <GlenProfile />
-        <WhyKangen />
-        <ProductShowcase />
-        <ProductComparison />
-        <WaterTypes />
-        <BusinessOpportunity />
-        <Testimonials />
-        <Process />
-        <FAQ />
-        <FinalCTA />
-      </main>
+        <main className="min-h-[60vh] pt-[4.5rem]">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/why-kangen" element={<WhyKangenPage />} />
+            <Route path="/water-types" element={<WaterTypesPage />} />
+            <Route path="/products" element={<ProductsPage />} />
+            <Route path="/compare" element={<ComparePage />} />
+            <Route path="/glen-apostol" element={<GlenPage />} />
+            <Route path="/process" element={<ProcessPage />} />
+            <Route path="/business" element={<BusinessPage />} />
+            <Route path="/testimonials" element={<TestimonialsPage />} />
+            <Route path="/faq" element={<FAQPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            {/* Unknown routes fall back to Home */}
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </main>
 
-      <Footer />
-
-      <MobileStickyCTA />
-      <LeadFormModal isOpen={modalOpen} onClose={closeLead} defaultProduct={defaultProduct} />
-    </LeadModalContext.Provider>
+        <Footer />
+        <MobileStickyCTA />
+        <LeadFormModal isOpen={modalOpen} onClose={closeLead} defaultProduct={defaultProduct} />
+      </LeadModalContext.Provider>
+    </HashRouter>
   )
 }

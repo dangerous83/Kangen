@@ -1,14 +1,15 @@
-import { CONSULTANT, WHATSAPP_LINK, PHONE_LINK, NAV_LINKS } from '../data/site'
+import { Link } from 'react-router-dom'
+import { CONSULTANT, WHATSAPP_LINK, PHONE_LINK } from '../data/site'
 import { useLeadModal } from '../context/LeadModalContext'
 import { asset } from '../lib/asset'
 import { WhatsApp, Phone } from './icons'
 
 const quickLinks = [
-  { label: 'Why Kangen Water', href: '#why' },
-  { label: 'Products', href: '#products' },
-  { label: 'Glen Apostol', href: '#glen' },
-  { label: 'Business Opportunity', href: '#business' },
-  { label: 'FAQ', href: '#faq' },
+  { label: 'Why Kangen Water', to: '/why-kangen' },
+  { label: 'Products', to: '/products' },
+  { label: 'Glen Apostol', to: '/glen-apostol' },
+  { label: 'Business Opportunity', to: '/business' },
+  { label: 'FAQ', to: '/faq' },
 ]
 
 const productLinks = ['Leveluk K8', 'SD501', 'SD501DX', 'Super501', 'JR IV', 'Anespa DX']
@@ -54,10 +55,10 @@ export default function Footer() {
             <h3 className="text-sm font-bold uppercase tracking-wider text-brand-700">Quick Links</h3>
             <ul className="mt-5 space-y-3">
               {quickLinks.map((l) => (
-                <li key={l.href}>
-                  <a href={l.href} className="text-sm text-slate-500 transition-colors hover:text-brand-600">
+                <li key={l.to}>
+                  <Link to={l.to} className="text-sm text-slate-500 transition-colors hover:text-brand-600">
                     {l.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -69,9 +70,9 @@ export default function Footer() {
             <ul className="mt-5 space-y-3">
               {productLinks.map((p) => (
                 <li key={p}>
-                  <a href="#products" className="text-sm text-slate-500 transition-colors hover:text-brand-600">
+                  <Link to="/products" className="text-sm text-slate-500 transition-colors hover:text-brand-600">
                     {p}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

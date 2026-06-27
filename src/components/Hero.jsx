@@ -15,7 +15,7 @@ export default function Hero() {
   const { openLead } = useLeadModal()
 
   return (
-    <section id="home" className="relative overflow-hidden bg-white pt-28 sm:pt-32 lg:pt-36">
+    <section id="home" className="relative overflow-hidden bg-white pt-12 sm:pt-16 lg:pt-20">
       {/* Soft animated water gradient accents */}
       <div className="pointer-events-none absolute inset-0 water-gradient" />
       <div className="pointer-events-none absolute -left-24 top-24 h-72 w-72 rounded-full bg-brand-400/10 blur-3xl animate-water-drift" />
@@ -112,11 +112,12 @@ export default function Hero() {
           {/* Gold frame accent */}
           <div className="absolute -inset-3 -z-10 rounded-[2rem] bg-gradient-to-br from-gold/30 via-transparent to-brand-400/20 blur-2xl" />
           <div className="overflow-hidden rounded-[1.75rem] border border-slate-100 shadow-[0_30px_70px_-30px_rgba(2,79,158,0.45)]">
+            {/* Full, uncropped hero image of Glen Apostol */}
             {/* TODO: replace /assets/glen-apostol.png with the final hero image */}
             <img
               src={asset('/assets/glen-apostol.png')}
               alt="Glen Apostol, professional Enagic Kangen Water consultant, in a modern Dubai office"
-              className="h-full w-full object-cover"
+              className="block h-auto w-full object-contain"
               loading="eager"
             />
           </div>

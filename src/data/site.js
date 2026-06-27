@@ -24,14 +24,48 @@ export const WHATSAPP_LINK = `https://wa.me/${CONSULTANT.phoneRaw}?text=${encode
 // Direct dial link
 export const PHONE_LINK = `tel:${CONSULTANT.phone}`
 
-// Navigation links (anchor ids match the section components)
+// Navigation structure for the multi-page site.
+// Items with `children` render as dropdown menus.
 export const NAV_LINKS = [
-  { label: 'Home', href: '#home' },
-  { label: 'Why Kangen Water', href: '#why' },
-  { label: 'Products', href: '#products' },
-  { label: 'Glen Apostol', href: '#glen' },
-  { label: 'Business Opportunity', href: '#business' },
-  { label: 'Testimonials', href: '#testimonials' },
-  { label: 'FAQ', href: '#faq' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Home', to: '/' },
+  {
+    label: 'Why Kangen',
+    children: [
+      { label: 'Why Kangen Water', to: '/why-kangen', desc: 'The wellness-focused difference' },
+      { label: '5 Water Types', to: '/water-types', desc: 'One machine, many uses' },
+    ],
+  },
+  {
+    label: 'Products',
+    children: [
+      { label: 'All Machines', to: '/products', desc: 'Browse the full Enagic range' },
+      { label: 'Compare Machines', to: '/compare', desc: 'Side-by-side comparison' },
+    ],
+  },
+  {
+    label: 'Glen Apostol',
+    children: [
+      { label: 'Meet Glen', to: '/glen-apostol', desc: 'Your dedicated consultant' },
+      { label: 'How It Works', to: '/process', desc: 'Your 4-step journey' },
+      { label: 'Testimonials', to: '/testimonials', desc: 'What clients say' },
+    ],
+  },
+  { label: 'Business', to: '/business' },
+  { label: 'FAQ', to: '/faq' },
+  { label: 'Contact', to: '/contact' },
+]
+
+// Flat list of all routes (used for the footer + sitemap)
+export const ALL_PAGES = [
+  { label: 'Home', to: '/' },
+  { label: 'Why Kangen Water', to: '/why-kangen' },
+  { label: '5 Water Types', to: '/water-types' },
+  { label: 'All Machines', to: '/products' },
+  { label: 'Compare Machines', to: '/compare' },
+  { label: 'Meet Glen', to: '/glen-apostol' },
+  { label: 'How It Works', to: '/process' },
+  { label: 'Testimonials', to: '/testimonials' },
+  { label: 'Business Opportunity', to: '/business' },
+  { label: 'FAQ', to: '/faq' },
+  { label: 'Contact', to: '/contact' },
 ]
