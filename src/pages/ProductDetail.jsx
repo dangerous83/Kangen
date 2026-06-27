@@ -4,7 +4,7 @@ import { products } from '../data/products'
 import { WHATSAPP_LINK } from '../data/site'
 import { useLeadModal } from '../context/LeadModalContext'
 import { asset } from '../lib/asset'
-import { Check, WhatsApp, ArrowRight } from '../components/icons'
+import { Check, WhatsApp, ArrowRight, Drop, Layers } from '../components/icons'
 
 const sharedBenefits = [
   'Genuine Enagic build quality',
@@ -108,6 +108,110 @@ export default function ProductDetail() {
             </p>
           </motion.div>
         </div>
+
+        {/* Detailed machine information (Enagic-based) */}
+        {product.details && (
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.6 }}
+            className="mt-20 border-t border-slate-100 pt-14"
+          >
+            <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+              {/* Overview + features */}
+              <div>
+                <span className="eyebrow">Overview</span>
+                <h2 className="mt-4 text-2xl font-bold text-brand-700 sm:text-3xl">
+                  About the {product.name}
+                </h2>
+                <p className="mt-5 text-base leading-relaxed text-slate-600">
+                  {product.details.overview}
+                </p>
+
+                {product.details.plates && (
+                  <div className="mt-6 inline-flex items-center gap-2 rounded-full bg-brand-50 px-4 py-2 text-sm font-semibold text-brand-700">
+                    <Layers className="h-4 w-4 text-gold-dark" />
+                    {product.details.plates}
+                  </div>
+                )}
+
+                {product.details.features?.length > 0 && (
+                  <>
+                    <h3 className="mt-9 text-lg font-bold text-brand-700">Key features</h3>
+                    <ul className="mt-4 grid gap-2.5">
+                      {product.details.features.map((f) => (
+                        <li key={f} className="flex items-start gap-2.5 text-sm text-slate-600">
+                          <Check className="mt-0.5 h-4 w-4 flex-none text-wellness" />
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                )}
+              </div>
+
+              {/* Specs + water types */}
+              <div className="space-y-8">
+                {product.details.specs?.length > 0 && (
+                  <div className="rounded-3xl border border-slate-100 bg-slate-50/60 p-6">
+                    <h3 className="text-sm font-semibold uppercase tracking-wide text-gold-dark">
+                      Specifications
+                    </h3>
+                    <dl className="mt-4 divide-y divide-slate-200/70">
+                      {product.details.specs.map((s) => (
+                        <div key={s.label} className="flex items-center justify-between gap-4 py-2.5">
+                          <dt className="text-sm text-slate-500">{s.label}</dt>
+                          <dd className="text-sm font-semibold text-brand-700">{s.value}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                  </div>
+                )}
+
+                {product.details.waterTypes?.length > 0 && (
+                  <div>
+                    <h3 className="flex items-center gap-2 text-lg font-bold text-brand-700">
+                      <Drop className="h-5 w-5 text-brand-500" />
+                      Water types produced
+                    </h3>
+                    <div className="mt-4 grid gap-3">
+                      {product.details.waterTypes.map((w) => (
+                        <div
+                          key={w.name}
+                          className="rounded-2xl border border-slate-100 bg-white p-4 shadow-card"
+                        >
+                          <div className="flex items-center justify-between gap-3">
+                            <span className="text-sm font-bold text-brand-700">{w.name}</span>
+                            <span className="rounded-full bg-brand-50 px-2.5 py-0.5 text-xs font-semibold text-brand-600">
+                              {w.ph}
+                            </span>
+                          </div>
+                          <p className="mt-1 text-xs text-slate-500">{w.use}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {product.details.source && (
+              <p className="mt-10 text-xs leading-relaxed text-slate-400">
+                Product details summarised from official Enagic information.{' '}
+                <a
+                  href={product.details.source}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-brand-600 underline hover:text-brand-700"
+                >
+                  View on Enagic.com
+                </a>
+                . Always confirm current specifications and pricing with Glen before purchase.
+              </p>
+            )}
+          </motion.section>
+        )}
 
         {/* Related machines */}
         <div className="mt-20">
