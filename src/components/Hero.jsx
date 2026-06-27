@@ -39,15 +39,13 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.08 }}
-              className="mt-6 text-4xl font-extrabold leading-[1.07] tracking-tight text-brand-700 sm:text-5xl lg:text-[3.4rem]"
+              className="mt-6 font-extrabold leading-[1.12] tracking-tight text-brand-700 text-2xl sm:text-3xl lg:text-[2.4rem]"
             >
-              Change Your Water.
-              <span className="mt-1 block text-brand-600">
-                Change Your{' '}
-                <span className="relative whitespace-nowrap">
-                  Daily Life.
-                  <span className="absolute -bottom-1 left-0 h-[5px] w-full rounded-full bg-gold/70" />
-                </span>
+              {/* Exactly two lines — each stays on one row */}
+              <span className="block whitespace-nowrap">Change Your Water.</span>
+              <span className="relative mt-1 block w-fit whitespace-nowrap text-brand-600">
+                Change Your Daily Life.
+                <span className="absolute -bottom-1 left-0 h-[4px] w-full rounded-full bg-gold/70" />
               </span>
             </motion.h1>
 
