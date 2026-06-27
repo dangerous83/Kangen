@@ -47,13 +47,7 @@ export default function Header() {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3" aria-label="Glen Apostol — Kangen Water Consultant">
           {/* TODO: replace /assets/logo.png with the official logo if updated */}
-          <img src={asset('/assets/logo.png')} alt="Enagic Kangen Water logo" className="h-8 w-auto" />
-          <span className="hidden text-sm font-semibold leading-tight text-brand-700 sm:block">
-            Glen Apostol
-            <span className="block text-[0.68rem] font-medium uppercase tracking-wider text-gold-dark">
-              Kangen Water Consultant
-            </span>
-          </span>
+          <img src={asset('/assets/logo.png')} alt="Enagic Kangen Water — Glen Apostol" className="h-9 w-auto" />
         </Link>
 
         {/* Desktop nav */}
@@ -106,9 +100,6 @@ export default function Header() {
 
         {/* Desktop CTA */}
         <div className="hidden items-center gap-3 lg:flex">
-          <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="text-wellness transition-colors hover:text-wellness-dark" aria-label="Message Glen on WhatsApp">
-            <WhatsApp className="h-6 w-6" />
-          </a>
           <button onClick={() => openLead()} className="btn-primary">
             Book Consultation
           </button>

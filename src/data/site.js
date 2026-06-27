@@ -27,7 +27,6 @@ export const PHONE_LINK = `tel:${CONSULTANT.phone}`
 // Navigation structure for the multi-page site.
 // Items with `children` render as dropdown menus.
 export const NAV_LINKS = [
-  { label: 'Home', to: '/' },
   {
     label: 'Why Kangen',
     children: [
@@ -51,8 +50,6 @@ export const NAV_LINKS = [
     ],
   },
   { label: 'Business', to: '/business' },
-  { label: 'FAQ', to: '/faq' },
-  { label: 'Contact', to: '/contact' },
 ]
 
 // Flat list of all routes (used for the footer + sitemap)
