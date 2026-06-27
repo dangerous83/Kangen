@@ -1,9 +1,27 @@
 // ============================================================
 // Product catalogue
-// NOTE: Replace `image` paths with the real product photo for each
-// model when available. Several models currently reuse shared
-// placeholder images located in /public/assets.
+// Machine `details` (overview, plates, water types, features,
+// specs) are based on Enagic's published product information.
+// Always verify pricing & specs against official Enagic
+// materials before purchase.
 // ============================================================
+
+// The five water types every multi-plate Leveluk produces.
+const fiveWaters = [
+  { name: 'Strong Kangen Water', ph: 'pH 11.0', use: 'Food prep & tough cleaning' },
+  { name: 'Kangen Water', ph: 'pH 8.5–9.5', use: 'Everyday drinking & cooking' },
+  { name: 'Clean / Neutral Water', ph: 'pH 7.0', use: 'Taking medication & baby formula' },
+  { name: 'Beauty Water', ph: 'pH 4.0–6.0', use: 'Skin toning & gentle cleaning' },
+  { name: 'Strong Acidic Water', ph: 'pH 2.5', use: 'Sanitising surfaces & utensils' },
+]
+
+// The compact JR IV produces four water types.
+const fourWaters = [
+  { name: 'Strong Kangen Water', ph: 'pH up to 11.0', use: 'Food prep & cleaning' },
+  { name: 'Kangen Water', ph: 'pH 8.5–9.5', use: 'Everyday drinking & cooking' },
+  { name: 'Clean / Neutral Water', ph: 'pH 7.0', use: 'Taking medication' },
+  { name: 'Beauty Water', ph: 'pH 4.0–6.0', use: 'Skin toning & gentle cleaning' },
+]
 
 export const products = [
   {
@@ -18,78 +36,231 @@ export const products = [
     feature: '8 platinum-coated plates',
     usage: 'Home — heavy use',
     highlight: true,
+    details: {
+      source: 'https://www.enagic.com/en_US/products/leveluk-k8',
+      plates: '8 platinum-coated titanium plates',
+      overview:
+        'The Leveluk K8 is Enagic’s flagship home water ionizer. With eight platinum-coated titanium electrode plates — the most in the standard home series — it delivers strong, stable electrolysis and high water output for busy households. A large full-colour LCD panel and clear multi-language voice guidance make daily operation simple, while the automatic cleaning system keeps the unit performing reliably year after year.',
+      waterTypes: fiveWaters,
+      features: [
+        '8 platinum-coated titanium electrode plates for maximum ionising strength',
+        'Produces 5 distinct water types at the touch of a button',
+        'Large full-colour LCD display with intuitive controls',
+        'Clear multi-language electronic voice guidance',
+        'Automatic cleaning system for long-term reliability',
+        'Suitable for high daily demand in larger households',
+      ],
+      specs: [
+        { label: 'Electrode plates', value: '8' },
+        { label: 'Water types', value: '5' },
+        { label: 'Display', value: 'Full-colour LCD' },
+        { label: 'Guidance', value: 'Multi-language voice' },
+        { label: 'Cleaning', value: 'Automatic' },
+        { label: 'Installation', value: 'Countertop' },
+      ],
+    },
   },
   {
     id: 'sd501dx',
     name: 'Leveluk SD501DX',
     tagline: 'Advanced & Guided',
-    image: '/assets/kangen-machine.png', // TODO: replace with SD501DX image
+    image: '/assets/sd501dx.png',
     description:
       'A modern 7-plate machine with advanced features and multilingual audio guidance for an effortless, well-supported daily routine.',
     bestFor: 'Tech-forward homes',
     feature: '7 plates + audio guidance',
     usage: 'Home — daily use',
+    details: {
+      source: 'https://www.enagic.com/en_US/products/leveluk-sd501dx',
+      plates: '7 platinum-coated titanium plates',
+      overview:
+        'The Leveluk SD501DX pairs the proven 7-plate SD501 engine with a dedicated, separately installed faucet and built-in diverter — giving you a clean, direct water connection and an effortless daily routine. Large LCD readouts and clear voice prompts guide you through each water type, and the automatic cleaning system keeps performance consistent.',
+      waterTypes: fiveWaters,
+      features: [
+        '7 platinum-coated titanium electrode plates',
+        'Dedicated, separately installed faucet with built-in diverter',
+        'Produces 5 distinct water types',
+        'LCD display with clear electronic voice guidance',
+        'Automatic cleaning for dependable performance',
+      ],
+      specs: [
+        { label: 'Electrode plates', value: '7' },
+        { label: 'Water types', value: '5' },
+        { label: 'Display', value: 'LCD + voice guidance' },
+        { label: 'Faucet', value: 'Dedicated, installed' },
+        { label: 'Cleaning', value: 'Automatic' },
+        { label: 'Installation', value: 'Countertop' },
+      ],
+    },
   },
   {
     id: 'sd501-platinum',
     name: 'Leveluk SD501 Platinum',
     tagline: 'Elegant Home Model',
-    image: '/assets/kangen-machine.png', // TODO: replace with SD501 Platinum image
+    image: '/assets/sd501-platinum.png',
     description:
       'A premium home-use model known for strong, dependable performance paired with an elegant design that complements any modern kitchen.',
     bestFor: 'Design-conscious homes',
     feature: 'Refined premium build',
     usage: 'Home — daily use',
+    details: {
+      source: 'https://www.enagic.com/en_US/products/leveluk-sd501-platinum',
+      plates: '7 platinum-coated titanium plates',
+      overview:
+        'The Leveluk SD501 Platinum delivers the same robust 7-plate performance that made the SD501 a worldwide best-seller, wrapped in an elegant platinum-finish cabinet designed to complement a modern kitchen. A large LCD panel, voice guidance and automatic cleaning make it a refined, dependable choice for everyday home use.',
+      waterTypes: fiveWaters,
+      features: [
+        '7 platinum-coated titanium electrode plates',
+        'Elegant platinum-finish cabinet design',
+        'Produces 5 distinct water types',
+        'LCD display with electronic voice guidance',
+        'Automatic cleaning for long-term reliability',
+      ],
+      specs: [
+        { label: 'Electrode plates', value: '7' },
+        { label: 'Water types', value: '5' },
+        { label: 'Display', value: 'LCD + voice guidance' },
+        { label: 'Finish', value: 'Platinum cabinet' },
+        { label: 'Cleaning', value: 'Automatic' },
+        { label: 'Installation', value: 'Countertop' },
+      ],
+    },
   },
   {
     id: 'sd501',
     name: 'Leveluk SD501',
     tagline: 'Trusted Classic',
-    image: '/assets/kangen-machine.png', // TODO: replace with SD501 image
+    image: '/assets/kangen-machine.png', // TODO: replace with dedicated SD501 image if available
     description:
       'A trusted home-use model designed for consistent daily Kangen Water production — a proven choice for families starting their journey.',
     bestFor: 'Everyday family use',
     feature: 'Consistent performance',
     usage: 'Home — daily use',
+    details: {
+      source: 'https://www.enagic.com/en_US/products/leveluk-sd501',
+      plates: '7 platinum-coated titanium plates',
+      overview:
+        'The Leveluk SD501 is Enagic’s trusted, worldwide best-selling home ionizer. Its seven platinum-coated titanium plates deliver consistent, reliable Kangen Water production day after day — a proven, no-fuss choice for families starting their Kangen Water journey.',
+      waterTypes: fiveWaters,
+      features: [
+        '7 platinum-coated titanium electrode plates',
+        'Worldwide best-selling home model',
+        'Produces 5 distinct water types',
+        'LCD display with electronic voice guidance',
+        'Automatic cleaning for long-term reliability',
+      ],
+      specs: [
+        { label: 'Electrode plates', value: '7' },
+        { label: 'Water types', value: '5' },
+        { label: 'Display', value: 'LCD + voice guidance' },
+        { label: 'Cleaning', value: 'Automatic' },
+        { label: 'Installation', value: 'Countertop' },
+      ],
+    },
   },
   {
     id: 'super501',
     name: 'Leveluk Super501',
     tagline: 'Maximum Capacity',
-    image: '/assets/kangen-machine.png', // TODO: replace with Super501 image
+    image: '/assets/super501.png',
     description:
       'Built for heavy use, larger households, or customers who need higher production capacity throughout the day without compromise.',
     bestFor: 'Large households & high demand',
     feature: 'High-capacity output',
     usage: 'Home / commercial',
+    details: {
+      source: 'https://www.enagic.com/en_US/products/leveluk-super501',
+      plates: '12 platinum-coated titanium plates',
+      overview:
+        'The Leveluk Super501 is Enagic’s high-capacity workhorse. With twelve platinum-coated titanium electrode plates and a robust power supply, it is built for continuous, high-volume operation — ideal for large families, offices, clinics and light commercial settings that need a steady supply throughout the day.',
+      waterTypes: fiveWaters,
+      features: [
+        '12 platinum-coated titanium electrode plates',
+        'Built for continuous, high-volume production',
+        'Ideal for large households and light commercial use',
+        'Produces 5 distinct water types',
+        'Durable construction for heavy daily demand',
+      ],
+      specs: [
+        { label: 'Electrode plates', value: '12' },
+        { label: 'Water types', value: '5' },
+        { label: 'Capacity', value: 'High / continuous' },
+        { label: 'Best suited to', value: 'Heavy / commercial' },
+        { label: 'Cleaning', value: 'Automatic' },
+        { label: 'Installation', value: 'Countertop' },
+      ],
+    },
   },
   {
     id: 'jr4',
     name: 'Leveluk JR IV',
     tagline: 'Smart Starter',
-    image: '/assets/kangen-machine.png', // TODO: replace with JR IV image
+    image: '/assets/jr-iv.png',
     description:
       'A compact starter model suitable for customers who want a practical, space-friendly entry into the Kangen Water lifestyle.',
     bestFor: 'First-time owners & small spaces',
     feature: 'Compact footprint',
     usage: 'Home — light/daily use',
+    details: {
+      source: 'https://www.enagic.com/en_US/products/leveluk-jr4',
+      plates: '3 platinum-coated titanium plates',
+      overview:
+        'The Leveluk JR IV is a compact, affordable entry into the Kangen Water lifestyle. Three platinum-coated titanium plates produce multiple water types in a space-friendly footprint — an ideal first machine for smaller households, tighter kitchens and customers who want to start simply.',
+      waterTypes: fourWaters,
+      features: [
+        '3 platinum-coated titanium electrode plates',
+        'Compact, space-friendly footprint',
+        'Produces 4 water types',
+        'Simple LCD display with voice guidance',
+        'Practical, budget-friendly starter model',
+      ],
+      specs: [
+        { label: 'Electrode plates', value: '3' },
+        { label: 'Water types', value: '4' },
+        { label: 'Footprint', value: 'Compact' },
+        { label: 'Display', value: 'LCD + voice guidance' },
+        { label: 'Cleaning', value: 'Automatic' },
+        { label: 'Installation', value: 'Countertop' },
+      ],
+    },
   },
   {
     id: 'sd501u',
     name: 'Leveluk SD501U',
     tagline: 'Under-Counter',
-    image: '/assets/kangen-machine.png', // TODO: replace with SD501U image
+    image: '/assets/sd501u.png',
     description:
       'An under-counter solution for customers who want more counter space and a clean, minimalist kitchen setup with a dedicated faucet.',
     bestFor: 'Clean kitchen design',
     feature: 'Hidden installation',
     usage: 'Home — built-in',
+    details: {
+      source: 'https://www.enagic.com/en_US/products/leveluk-sd501u-under-counter',
+      plates: '7 platinum-coated titanium plates',
+      overview:
+        'The Leveluk SD501U installs the proven 7-plate SD501 engine discreetly under the counter, with a dedicated faucet on the countertop. It frees up valuable counter space for a clean, minimalist kitchen while delivering the same dependable 7-plate performance.',
+      waterTypes: fiveWaters,
+      features: [
+        '7 platinum-coated titanium electrode plates',
+        'Discreet under-counter installation',
+        'Dedicated faucet mounted on the countertop',
+        'Frees up counter space for a clean kitchen',
+        'Produces 5 distinct water types',
+      ],
+      specs: [
+        { label: 'Electrode plates', value: '7' },
+        { label: 'Water types', value: '5' },
+        { label: 'Faucet', value: 'Dedicated, countertop' },
+        { label: 'Cleaning', value: 'Automatic' },
+        { label: 'Installation', value: 'Under-counter / built-in' },
+      ],
+    },
   },
   {
     id: 'anespa',
     name: 'Anespa DX',
     tagline: 'Home Spa System',
-    image: '/assets/beauty-product.png', // TODO: replace with Anespa DX image
+    image: '/assets/anespa.png',
     description:
       'A home spa system designed to upgrade your bath and shower water experience for a refreshing, wellness-focused daily routine.',
     bestFor: 'Bath & shower wellness',
