@@ -14,7 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 // rather than a flash.
 const loader = document.getElementById('app-loader')
 if (loader) {
-  const MIN_VISIBLE_MS = 1500
+  const MIN_VISIBLE_MS = 2000
   const hide = () => {
     loader.classList.add('is-hidden')
     loader.addEventListener('transitionend', () => loader.remove(), { once: true })

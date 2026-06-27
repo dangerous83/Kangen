@@ -25,7 +25,8 @@ export default function Hero() {
         <div className="pointer-events-none absolute inset-0 hidden md:block md:bg-gradient-to-r md:from-white md:from-0% md:via-white/80 md:via-[24%] md:to-transparent md:to-[50%]" />
 
         <div className="container-px relative w-full py-10 md:py-0">
-          <div className="max-w-lg">
+          {/* Nudge the text block up a little on desktop so it sits higher than dead-centre */}
+          <div className="max-w-lg md:-translate-y-6 lg:-translate-y-10">
             <motion.span
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
