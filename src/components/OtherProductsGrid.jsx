@@ -1,48 +1,53 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import Reveal, { SectionHeading } from './Reveal'
-import { machines } from '../data/products'
+import { otherProducts } from '../data/products'
 import { useLeadModal } from '../context/LeadModalContext'
 import { asset } from '../lib/asset'
 import { Check, ArrowRight } from './icons'
-import OtherProductsGrid from './OtherProductsGrid'
 
-export default function ProductShowcase() {
+// Falls back to the logo if a product photo hasn't been added yet.
+const onImgError = (e) => {
+  if (e.currentTarget.dataset.fallback) return
+  e.currentTarget.dataset.fallback = '1'
+  e.currentTarget.src = asset('/assets/logo.png')
+  e.currentTarget.classList.add('opacity-50', 'p-8')
+}
+
+// Reusable "Other Products" feature-card grid. Rendered both under the
+// machines on the All Machines page and on the dedicated page.
+export default function OtherProductsGrid({ className = 'section-pad bg-white' }) {
   const { openLead } = useLeadModal()
 
   return (
-    <>
-    <section id="products" className="section-pad bg-slate-50/60">
+    <section id="other-products" className={className}>
       <div className="container-px">
         <SectionHeading
-          eyebrow="Premium Machines"
-          title="Find the right Kangen Water machine"
-          intro="From compact starters to flagship performers — explore the Enagic range, then ask Glen which model fits your home, lifestyle and budget."
+          eyebrow="Other Products"
+          title="Beyond the machines"
+          intro="Explore the wider Enagic range — from the Anespa home spa and genuine replacement filters to the Kangen Ukon, Beauté and Wagyu lifestyle products. Tap any card for full details."
         />
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {machines.map((p, i) => (
+          {otherProducts.map((p, i) => (
             <Reveal key={p.id} delay={(i % 3) * 0.08}>
               <motion.article
                 whileHover={{ y: -8 }}
                 transition={{ type: 'spring', stiffness: 280, damping: 22 }}
-                className={`group flex h-full flex-col overflow-hidden rounded-3xl border bg-white shadow-card transition-shadow hover:shadow-soft ${
-                  p.highlight ? 'border-gold/50 ring-1 ring-gold/30' : 'border-slate-100'
-                }`}
+                className="group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-card transition-shadow hover:shadow-soft"
               >
-                {/* Image (links to the product's own page) */}
-                <Link to={`/products/${p.id}`} className="relative flex aspect-[16/9] items-center justify-center overflow-hidden bg-gradient-to-b from-brand-50/60 to-white p-3">
+                {/* Image links to the product's own page */}
+                <Link
+                  to={`/products/${p.id}`}
+                  className="relative flex aspect-[16/9] items-center justify-center overflow-hidden bg-gradient-to-b from-brand-50/60 to-white p-3"
+                >
                   <img
                     src={asset(p.image)}
-                    alt={`${p.name} water ionizer`}
+                    onError={onImgError}
+                    alt={p.name}
                     className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
-                  {p.highlight && (
-                    <span className="absolute left-4 top-4 rounded-full bg-gold px-3 py-1 text-[0.7rem] font-bold uppercase tracking-wide text-white shadow-gold">
-                      Flagship
-                    </span>
-                  )}
                   <span className="absolute right-4 top-4 rounded-full bg-white/90 px-3 py-1 text-[0.7rem] font-semibold text-brand-600 backdrop-blur">
                     {p.tagline}
                   </span>
@@ -51,7 +56,9 @@ export default function ProductShowcase() {
                 {/* Body */}
                 <div className="flex flex-1 flex-col p-6">
                   <h3 className="text-xl font-bold text-brand-700">
-                    <Link to={`/products/${p.id}`} className="hover:text-brand-600">{p.name}</Link>
+                    <Link to={`/products/${p.id}`} className="hover:text-brand-600">
+                      {p.name}
+                    </Link>
                   </h3>
                   <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">{p.description}</p>
 
@@ -62,7 +69,6 @@ export default function ProductShowcase() {
 
                   <span className="mt-5 mb-4 block h-px w-full bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
 
-                  {/* Primary: own page · Secondary: ask Glen */}
                   <div className="flex flex-col gap-2.5 sm:flex-row">
                     <Link
                       to={`/products/${p.id}`}
@@ -85,9 +91,5 @@ export default function ProductShowcase() {
         </div>
       </div>
     </section>
-
-    {/* Other Enagic products, shown right under the machines */}
-    <OtherProductsGrid className="section-pad bg-white" />
-    </>
   )
 }

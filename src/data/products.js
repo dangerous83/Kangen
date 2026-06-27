@@ -128,38 +128,6 @@ export const machines = [
     },
   },
   {
-    id: 'sd501',
-    name: 'Leveluk SD501',
-    tagline: 'Trusted Classic',
-    image: '/assets/kangen-machine.png', // TODO: replace with dedicated SD501 image if available
-    description:
-      'A trusted home-use model designed for consistent daily Kangen Water production — a proven choice for families starting their journey.',
-    bestFor: 'Everyday family use',
-    feature: 'Consistent performance',
-    usage: 'Home — daily use',
-    details: {
-      source: 'https://www.enagic.com/en_US/products/leveluk-sd501',
-      plates: '7 platinum-coated titanium plates',
-      overview:
-        'The Leveluk SD501 is Enagic’s trusted, worldwide best-selling home ionizer. Its seven platinum-coated titanium plates deliver consistent, reliable Kangen Water production day after day — a proven, no-fuss choice for families starting their Kangen Water journey.',
-      waterTypes: fiveWaters,
-      features: [
-        '7 platinum-coated titanium electrode plates',
-        'Worldwide best-selling home model',
-        'Produces 5 distinct water types',
-        'LCD display with electronic voice guidance',
-        'Automatic cleaning for long-term reliability',
-      ],
-      specs: [
-        { label: 'Electrode plates', value: '7' },
-        { label: 'Water types', value: '5' },
-        { label: 'Display', value: 'LCD + voice guidance' },
-        { label: 'Cleaning', value: 'Automatic' },
-        { label: 'Installation', value: 'Countertop' },
-      ],
-    },
-  },
-  {
     id: 'super501',
     name: 'Leveluk Super501',
     tagline: 'Maximum Capacity',
@@ -327,7 +295,7 @@ export const otherProducts = [
     id: 'ukon',
     name: 'Kangen Ukon®',
     tagline: 'Turmeric Supplement',
-    image: '/assets/ukon.png', // TODO: add public/assets/ukon.png (see note)
+    image: '/assets/ukon.png',
     description:
       'A premium turmeric (ukon) supplement made from carefully cultivated Okinawan turmeric, naturally rich in curcumin.',
     bestFor: 'Everyday wellness',
@@ -355,7 +323,7 @@ export const otherProducts = [
     id: 'beaute',
     name: 'Kangen Beauté®',
     tagline: 'Beauty & Skincare',
-    image: '/assets/beauty-product.png', // interim image — replace with a dedicated Beauté photo
+    image: '/assets/beaute.png',
     description:
       'Enagic’s premium beauty line, thoughtfully formulated to complement a Kangen Water lifestyle and nourish your natural beauty.',
     bestFor: 'Skincare & beauty',
@@ -382,7 +350,7 @@ export const otherProducts = [
     id: 'wagyu',
     name: 'Kangen Wagyu®',
     tagline: 'Premium Wagyu Beef',
-    image: '/assets/wagyu.png', // TODO: add public/assets/wagyu.png (see note)
+    image: '/assets/wagyu.png',
     description:
       'Premium Japanese Wagyu beef from cattle raised with Kangen Water — exceptional marbling, tenderness and flavour.',
     bestFor: 'Fine dining',
