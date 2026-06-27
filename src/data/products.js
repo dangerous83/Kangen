@@ -291,6 +291,13 @@ export const products = [
   },
 ]
 
+// The six Leveluk machines featured on the "All Machines" page,
+// in display order. Machine-only — no Anespa / emGuarde / filters.
+export const machineIds = ['k8', 'sd501dx', 'sd501-platinum', 'super501', 'jr4', 'sd501u']
+export const machines = machineIds
+  .map((id) => products.find((p) => p.id === id))
+  .filter(Boolean)
+
 // Subset used in the dedicated machine comparison table
 export const comparison = [
   {

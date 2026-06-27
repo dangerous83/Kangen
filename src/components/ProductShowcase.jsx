@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import Reveal, { SectionHeading } from './Reveal'
-import { products } from '../data/products'
+import { machines } from '../data/products'
 import { useLeadModal } from '../context/LeadModalContext'
 import { asset } from '../lib/asset'
 import { Check, ArrowRight } from './icons'
@@ -19,7 +19,7 @@ export default function ProductShowcase() {
         />
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {products.map((p, i) => (
+          {machines.map((p, i) => (
             <Reveal key={p.id} delay={(i % 3) * 0.08}>
               <motion.article
                 whileHover={{ y: -8 }}
@@ -29,12 +29,11 @@ export default function ProductShowcase() {
                 }`}
               >
                 {/* Image (links to the product's own page) */}
-                <Link to={`/products/${p.id}`} className="relative block aspect-[4/3] overflow-hidden bg-gradient-to-b from-brand-50/60 to-white">
-                  {/* TODO: replace placeholder product images in data/products.js with real photos */}
+                <Link to={`/products/${p.id}`} className="relative flex aspect-[16/9] items-center justify-center overflow-hidden bg-gradient-to-b from-brand-50/60 to-white p-3">
                   <img
                     src={asset(p.image)}
                     alt={`${p.name} water ionizer`}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
                   {p.highlight && (
