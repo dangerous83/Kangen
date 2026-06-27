@@ -84,11 +84,12 @@ export default function Hero() {
           {/* Gold glow accent */}
           <div className="absolute -inset-3 -z-10 rounded-[2rem] bg-gradient-to-br from-gold/25 via-transparent to-brand-400/20 blur-2xl" />
           <div className="overflow-hidden rounded-[1.75rem] border border-slate-100 shadow-[0_30px_70px_-30px_rgba(2,79,158,0.4)]">
+            {/* Full, uncropped image of Glen Apostol */}
             {/* TODO: replace /assets/glen-apostol.png with the final hero image */}
             <img
               src={asset('/assets/glen-apostol.png')}
               alt="Glen Apostol, professional Enagic Kangen Water consultant, in a modern Dubai office"
-              className="h-[24rem] w-full object-cover object-[68%_top] sm:h-[30rem] lg:h-[34rem]"
+              className="block h-auto w-full object-contain"
               loading="eager"
             />
           </div>
