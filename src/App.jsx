@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react'
 import { HashRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { LeadModalContext } from './context/LeadModalContext'
+import RouteSeo from './components/RouteSeo'
 import ScrollToTop from './components/ScrollToTop'
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -38,6 +39,7 @@ export default function App() {
     // HashRouter keeps deep links working on GitHub Pages (no server config needed)
     <HashRouter>
       <LeadModalContext.Provider value={{ openLead }}>
+        <RouteSeo />
         <ScrollToTop />
         <Header />
 
