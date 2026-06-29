@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
 import { getRouteSeo, SITE } from '../data/seo'
 
@@ -34,6 +34,9 @@ function setLink(rel, href) {
  */
 export default function RouteSeo() {
   const { pathname } = useLocation()
+  // The gtag.js snippet already sends a page_view for the initial load, so
+  // skip the first run here and only track subsequent in-app navigations.
+  const firstRun = useRef(true)
 
   useEffect(() => {
     const seo = getRouteSeo(pathname)
@@ -71,6 +74,19 @@ export default function RouteSeo() {
       document.head.appendChild(script)
     }
     script.textContent = JSON.stringify(seo.jsonLd)
+
+    // Google Analytics (GA4) SPA page-view tracking. The initial load is
+    // counted by the gtag config in index.html; here we report each
+    // subsequent hash-route navigation as a fresh page_view.
+    if (firstRun.current) {
+      firstRun.current = false
+    } else if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+      window.gtag('event', 'page_view', {
+        page_title: seo.title,
+        page_location: window.location.href,
+        page_path: `/#${pathname}`,
+      })
+    }
   }, [pathname])
 
   return null
