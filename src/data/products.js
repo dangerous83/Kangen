@@ -193,41 +193,9 @@ export const machines = [
       ],
     },
   },
-  {
-    id: 'sd501u',
-    name: 'Leveluk SD501U',
-    tagline: 'Under-Counter',
-    image: '/assets/sd501u.png',
-    description:
-      'An under-counter solution for customers who want more counter space and a clean, minimalist kitchen setup with a dedicated faucet.',
-    bestFor: 'Clean kitchen design',
-    feature: 'Hidden installation',
-    usage: 'Home — built-in',
-    details: {
-      source: 'https://www.enagic.com/en_US/products/leveluk-sd501u-under-counter',
-      plates: '7 platinum-coated titanium plates',
-      overview:
-        'The Leveluk SD501U installs the proven 7-plate SD501 engine discreetly under the counter, with a dedicated faucet on the countertop. It frees up valuable counter space for a clean, minimalist kitchen while delivering the same dependable 7-plate performance.',
-      waterTypes: fiveWaters,
-      features: [
-        '7 platinum-coated titanium electrode plates',
-        'Discreet under-counter installation',
-        'Dedicated faucet mounted on the countertop',
-        'Frees up counter space for a clean kitchen',
-        'Produces 5 distinct water types',
-      ],
-      specs: [
-        { label: 'Electrode plates', value: '7' },
-        { label: 'Water types', value: '5' },
-        { label: 'Faucet', value: 'Dedicated, countertop' },
-        { label: 'Cleaning', value: 'Automatic' },
-        { label: 'Installation', value: 'Under-counter / built-in' },
-      ],
-    },
-  },
 ]
 
-// The six machine ids, in display order, for any consumer that needs them.
+// The machine ids, in display order, for any consumer that needs them.
 export const machineIds = machines.map((m) => m.id)
 
 // ---------------- Other Enagic products (non-machine) ----------------

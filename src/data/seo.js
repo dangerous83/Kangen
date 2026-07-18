@@ -175,7 +175,7 @@ const ROUTES = {
   '/products': {
     title: 'Kangen Water Machines | Enagic Leveluk K8, SD501 & More | UAE',
     description:
-      'Browse the full range of Enagic Kangen Water ionizer machines — Leveluk K8, SD501DX, SD501 Platinum, Super501, JR IV and SD501U. Compare alkaline water machines with Glen.',
+      'Browse the full range of Enagic Kangen Water ionizer machines — Leveluk K8, SD501DX, SD501 Platinum, Super501 and JR IV. Compare alkaline water machines with Glen.',
     keywords: kw('Kangen Water machines', 'Enagic Leveluk K8', 'SD501', 'water ionizer price UAE'),
   },
   '/other-products': {

@@ -97,7 +97,6 @@ const topics = [
       '• Leveluk SD501 Platinum — 7 plates, elegant design-conscious homes\n' +
       '• Leveluk Super501 — 12 plates, large households & light commercial\n' +
       '• Leveluk JR IV — 3 plates, compact starter for small spaces\n' +
-      '• Leveluk SD501U — 7 plates, under-counter installation\n' +
       'Glen can compare any two models side-by-side for your situation.',
   },
   {
