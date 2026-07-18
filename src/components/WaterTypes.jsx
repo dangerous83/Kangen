@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Reveal, { SectionHeading } from './Reveal'
 import { useLeadModal } from '../context/LeadModalContext'
-import { Drop } from './icons'
+import { Drop, Sparkle, Hand, Check } from './icons'
 
 // Educational only — compliant wording, no medical claims.
 const waterTypes = [
@@ -11,6 +11,35 @@ const waterTypes = [
     ph: 'pH 11.0+',
     color: '#024f9e',
     use: 'A higher-alkaline setting commonly used around the kitchen for everyday cleaning and food-preparation tasks.',
+    // Benefits infographic (Strong Kangen Water only) — wording matches Enagic source material verbatim.
+    benefits: {
+      warning: 'Not for Drinking',
+      summary:
+        'Not for drinking. Strong Kangen Water preserves hygiene in your daily life due to its strong cleaning effect. It has dissolving and heat conducting benefits.',
+      usage: 'Usage: food preparation and cleaning.',
+      items: [
+        {
+          icon: Drop,
+          title: 'Food Prep',
+          text: 'Remove rawness from vegetables such as green onions, bamboo, wasabi and flowering fern with Strong Kangen Water.',
+        },
+        {
+          icon: Sparkle,
+          title: 'Stain Removal',
+          text: 'The extra strength, absorption power, will remove coffee, soy sauce, and oil stains with ease.',
+        },
+        {
+          icon: Hand,
+          title: 'Cleaning',
+          text: 'Clean cutting boards and dishcloths. Good for cleaning oil and tough grime from vents, as well as for general cleaning in the kitchen.',
+        },
+        {
+          icon: Check,
+          title: 'Dishes',
+          text: 'Use less detergent when washing your dishes. Save on water bills, as only one-third to one-fourth of the usual amount of water is adequate for rinsing off detergent.',
+        },
+      ],
+    },
   },
   {
     name: 'Kangen Water',
@@ -112,6 +141,55 @@ export default function WaterTypes() {
                   <span>Neutral</span>
                   <span>Alkaline</span>
                 </div>
+
+                {/* Benefits infographic — Strong Kangen Water only */}
+                {current.benefits && (
+                  <div className="mt-8 border-t border-slate-100 pt-8">
+                    {/* Summary + usage + "not for drinking" callout */}
+                    <div className="flex flex-col gap-4 rounded-2xl bg-brand-50/70 p-5 sm:flex-row sm:items-start sm:gap-5">
+                      <span className="inline-flex flex-none items-center gap-1.5 self-center rounded-full bg-red-50 px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-red-600 sm:self-start">
+                        <svg viewBox="0 0 20 20" fill="currentColor" className="h-3.5 w-3.5" aria-hidden="true">
+                          <path
+                            fillRule="evenodd"
+                            d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.515 2.625H3.72c-1.345 0-2.188-1.458-1.515-2.625L8.485 2.495zM10 6a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 6zm0 8a1 1 0 100-2 1 1 0 000 2z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                        {current.benefits.warning}
+                      </span>
+                      <div className="space-y-1.5 text-sm leading-relaxed text-slate-600">
+                        <p>{current.benefits.summary}</p>
+                        <p className="font-semibold text-brand-700">{current.benefits.usage}</p>
+                      </div>
+                    </div>
+
+                    {/* Use-case cards */}
+                    <div className="mt-5 grid gap-4 sm:grid-cols-2">
+                      {current.benefits.items.map((b) => {
+                        const Icon = b.icon
+                        return (
+                          <div
+                            key={b.title}
+                            className="flex gap-4 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm transition-shadow hover:shadow-card"
+                          >
+                            <div
+                              className="flex h-11 w-11 flex-none items-center justify-center rounded-xl text-white"
+                              style={{ backgroundColor: current.color }}
+                            >
+                              <Icon className="h-5 w-5" />
+                            </div>
+                            <div>
+                              <h4 className="text-sm font-bold uppercase tracking-wide text-brand-700">
+                                {b.title}
+                              </h4>
+                              <p className="mt-1 text-sm leading-relaxed text-slate-600">{b.text}</p>
+                            </div>
+                          </div>
+                        )
+                      })}
+                    </div>
+                  </div>
+                )}
               </motion.div>
             </AnimatePresence>
 
