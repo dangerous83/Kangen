@@ -148,6 +148,24 @@ const ROUTES = {
       'Learn why Kangen Water is different — alkaline, ionised, hydrogen-rich water from Enagic water ionizer technology for a daily wellness-focused lifestyle in the UAE.',
     keywords: kw('why Kangen Water', 'benefits of alkaline water', 'hydrogen-rich water benefits'),
   },
+  '/why-kangen/hydrogen-rich': {
+    title: 'Hydrogen Rich Water | Molecular Hydrogen & Kangen Water | UAE',
+    description:
+      'Learn how hydrogen-rich Kangen Water carries a high concentration of molecular hydrogen (H2) — an efficient antioxidant produced through Enagic electrolysis.',
+    keywords: kw('hydrogen rich water', 'molecular hydrogen H2', 'Kangen Water electrolysis'),
+  },
+  '/why-kangen/antioxidant': {
+    title: 'Antioxidant Water | Kangen Water & Oxidative Stress | UAE',
+    description:
+      'Understand how antioxidants help terminate free-radical reactions and why the quality of the water you drink matters for reducing oxidative stress.',
+    keywords: kw('antioxidant water', 'free radicals', 'oxidative stress', 'Kangen Water antioxidant'),
+  },
+  '/why-kangen/alkaline': {
+    title: 'Alkaline Water & pH Balance | Kangen Water Explained | UAE',
+    description:
+      'Learn about pH balance and alkaline water — the body maintains a slightly alkaline pH of 7.365, and the pH scale shows what is acidic, neutral or alkaline.',
+    keywords: kw('alkaline water', 'pH balance', 'pH scale', 'alkaline vs acidic water'),
+  },
   '/water-types': {
     title: '5 Water Types from One Kangen Machine | Alkaline to Acidic',
     description:
