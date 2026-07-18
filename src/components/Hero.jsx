@@ -27,7 +27,7 @@ export default function Hero() {
 
         <div className="container-px relative w-full py-10 md:py-0">
           {/* Nudge the text block up a little on desktop so it sits higher than dead-centre */}
-          <div className="max-w-lg md:-translate-y-6 lg:-translate-y-10">
+          <div className="max-w-xl md:-translate-y-6 lg:-translate-y-10">
             <motion.span
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
@@ -41,7 +41,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.08 }}
-              className="mt-6 font-extrabold leading-[1.12] tracking-tight text-brand-700 text-2xl sm:text-3xl lg:text-[2.4rem]"
+              className="mt-6 font-extrabold leading-[1.1] tracking-tight text-brand-700 text-2xl sm:text-4xl lg:text-5xl xl:text-[3.4rem]"
             >
               {/* Exactly two lines — each stays on one row */}
               <span className="block whitespace-nowrap">Change Your Water.</span>
@@ -55,7 +55,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.16 }}
-              className="mt-6 max-w-md text-lg leading-relaxed text-slate-700"
+              className="mt-6 max-w-lg text-lg leading-relaxed text-slate-700 sm:text-xl"
             >
               Premium Kangen Water machines with personal guidance from{' '}
               <strong className="font-semibold text-brand-700">Glen Apostol</strong> — expert advice
