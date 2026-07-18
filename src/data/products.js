@@ -341,6 +341,60 @@ export const otherProducts = [
       ],
     },
   },
+  {
+    id: 'emguarde',
+    name: 'emGuarde',
+    tagline: 'Electromagnetic Noise Harmonizer',
+    image: '/assets/emguarde.webp',
+    description:
+      'A device that uses harmonic frequencies to suppress targeted high-frequency electromagnetic noise radiation, helping create a balanced, harmonious environment.',
+    bestFor: 'A balanced environment',
+    feature: 'Harmonic frequency technology',
+    usage: 'Home & office',
+    details: {
+      overview:
+        'emGuarde utilizes harmonic frequencies to effectively suppress targeted electromagnetic noise radiation between 3MHz to 1000MHz within a 4-meter radius. The multiple layering of harmonic frequencies is strategically programmed to target specific frequencies at 36MHz, 72MHz, 108MHz, 144MHz, 180MHz and more. This patented technology achieves a balanced atmosphere and a harmonious environment by suppressing targeted electromagnetic noise radiation disturbances, at the same time can effectively suppress the negative effects of electromagnetic radiation affecting the microcirculation blood flow.',
+      features: [
+        'emGuarde covers a range of 4 meters radius or 8 meters diameter',
+        'emGuarde is built to suppress specific high frequency electromagnetic noise radiation between 3MHz to 1000MHz',
+        'Through the suppression of specific high frequency electromagnetic noise radiation, emGuarde can help improve microcirculation blood flow',
+      ],
+      specs: [
+        { label: 'Coverage', value: '4 m radius / 8 m diameter' },
+        { label: 'Frequency range', value: '3MHz – 1000MHz' },
+        { label: 'Technology', value: 'Patented harmonic frequencies' },
+        { label: 'Safety certification', value: 'SGS FCC, CE & RoHS' },
+        { label: 'Lifespan', value: 'Minimum 5 years with proper care' },
+      ],
+    },
+  },
+  {
+    id: 'kangen-air',
+    name: 'Kangen Air',
+    tagline: 'Air Purifier',
+    image: '/assets/kangen-air.webp',
+    description:
+      'Enagic’s latest innovation in air purification — a new type of air purifier that combines photocatalysts and ultraviolet (UV) LEDs to bring cleaner, healthier air to your home or workplace.',
+    bestFor: 'Cleaner home & office air',
+    feature: 'Photocatalyst + UV LED',
+    usage: 'Home & office',
+    details: {
+      overview:
+        'We are proud to announce the launch of Kangen Air, Enagic’s latest innovation in air purification technology. Designed with precision and advanced filtration, Kangen Air brings cleaner, healthier air to your home or workplace, reflecting Enagic’s commitment to enhancing your overall well-being. A new type of air purifier that combines photocatalysts and ultraviolet (UV) LEDs.',
+      features: [
+        'Remove pollutants, allergens and harmful particles from the air',
+        'Provide a healthier, fresher environment in your home and office',
+        'Maintenance-free',
+        'Quiet and light weight',
+      ],
+      specs: [
+        { label: 'Type', value: 'Air purifier' },
+        { label: 'Technology', value: 'Photocatalysts + UV LEDs' },
+        { label: 'Maintenance', value: 'Maintenance-free' },
+        { label: 'Includes', value: '4 colors of Kangen Air and 4 USB cables' },
+      ],
+    },
+  },
 ]
 
 // Combined catalogue — used for product-page lookups by id.
