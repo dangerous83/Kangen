@@ -8,6 +8,7 @@ import Footer from './components/Footer'
 import LeadFormModal from './components/LeadFormModal'
 import MobileStickyCTA from './components/MobileStickyCTA'
 import ChatWidget from './components/ChatWidget'
+import ProductDock from './components/ProductDock'
 
 import Home from './pages/Home'
 import WhyKangenPage from './pages/WhyKangenPage'
@@ -68,6 +69,7 @@ export default function App() {
 
         <Footer />
         <MobileStickyCTA />
+        <ProductDock />
         <ChatWidget />
         <LeadFormModal isOpen={modalOpen} onClose={closeLead} defaultProduct={defaultProduct} />
       </LeadModalContext.Provider>
