@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Reveal, { SectionHeading } from './Reveal'
 import { useLeadModal } from '../context/LeadModalContext'
-import { Drop, Sparkle, Hand, Check, Cog } from './icons'
+import { Drop, Sparkle, Hand, Check, Cog, Star } from './icons'
 
 // Educational only — compliant wording, no medical claims.
 const waterTypes = [
@@ -105,6 +105,18 @@ const waterTypes = [
     ph: 'pH 4.0 – 6.0',
     color: '#d3a637',
     use: 'A gently acidic setting popular as part of a daily skin and beauty routine, and for household freshness.',
+    // Benefits infographic — wording matches Enagic source material verbatim.
+    benefits: {
+      badge: { text: 'Weak Acidic Water', tone: 'neutral' },
+      summary:
+        'Weak acidic water is recognized to have an effect to tone your skin. It is effective to help tone your skin after a bath or shower or help close your pores after washing your face.',
+      items: [
+        { icon: Sparkle, text: 'Helps tone your skin' },
+        { icon: Drop, text: 'Effective to help close your pores after washing your face' },
+        { icon: Hand, text: 'Perfect after a bath or shower' },
+        { icon: Star, text: 'Leaves your skin feeling smooth & revitalized' },
+      ],
+    },
   },
   {
     name: 'Strong Acidic Water',
@@ -198,8 +210,15 @@ export default function WaterTypes() {
                         className={`inline-flex flex-none items-center gap-1.5 self-center rounded-full px-3 py-1.5 text-xs font-bold uppercase tracking-wide sm:self-start ${
                           current.benefits.badge.tone === 'safe'
                             ? 'bg-wellness/10 text-wellness-dark'
-                            : 'bg-red-50 text-red-600'
+                            : current.benefits.badge.tone === 'danger'
+                            ? 'bg-red-50 text-red-600'
+                            : ''
                         }`}
+                        style={
+                          current.benefits.badge.tone === 'neutral'
+                            ? { color: current.color, backgroundColor: `${current.color}1a` }
+                            : undefined
+                        }
                       >
                         <svg viewBox="0 0 20 20" fill="currentColor" className="h-3.5 w-3.5" aria-hidden="true">
                           {current.benefits.badge.tone === 'safe' ? (
@@ -208,12 +227,14 @@ export default function WaterTypes() {
                               d="M16.704 5.29a1 1 0 010 1.42l-7.5 7.5a1 1 0 01-1.42 0l-3.5-3.5a1 1 0 011.42-1.42l2.79 2.79 6.79-6.79a1 1 0 011.42 0z"
                               clipRule="evenodd"
                             />
-                          ) : (
+                          ) : current.benefits.badge.tone === 'danger' ? (
                             <path
                               fillRule="evenodd"
                               d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.515 2.625H3.72c-1.345 0-2.188-1.458-1.515-2.625L8.485 2.495zM10 6a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 6zm0 8a1 1 0 100-2 1 1 0 000 2z"
                               clipRule="evenodd"
                             />
+                          ) : (
+                            <path d="M10 2.5s5 5.53 5 8.75a5 5 0 01-10 0C5 8.03 10 2.5 10 2.5z" />
                           )}
                         </svg>
                         {current.benefits.badge.text}
@@ -241,11 +262,19 @@ export default function WaterTypes() {
                             >
                               <Icon className="h-5 w-5" />
                             </div>
-                            <div>
-                              <h4 className="text-sm font-bold uppercase tracking-wide text-brand-700">
-                                {b.title}
-                              </h4>
-                              <p className="mt-1 text-sm leading-relaxed text-slate-600">{b.text}</p>
+                            <div className="self-center">
+                              {b.title && (
+                                <h4 className="text-sm font-bold uppercase tracking-wide text-brand-700">
+                                  {b.title}
+                                </h4>
+                              )}
+                              <p
+                                className={`text-sm leading-relaxed ${
+                                  b.title ? 'mt-1 text-slate-600' : 'font-semibold text-brand-700'
+                                }`}
+                              >
+                                {b.text}
+                              </p>
                             </div>
                           </div>
                         )
