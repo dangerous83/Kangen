@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom'
 import Reveal, { SectionHeading } from './Reveal'
 import { asset } from '../lib/asset'
-import { Drop, Home, Layers, Japan, Hand, Check } from './icons'
+import { Drop, Home, Layers, Japan, Hand, Check, ArrowRight } from './icons'
 
 const cards = [
   {
@@ -49,16 +50,24 @@ export default function WhyKangen() {
         <Reveal delay={0.05}>
           <div className="mt-12 grid gap-4 sm:grid-cols-3">
             {[
-              { img: '/assets/hydrogen.png', label: 'Hydrogen-Rich' },
-              { img: '/assets/alkaline.png', label: 'Alkaline Water' },
-              { img: '/assets/antioxidant.png', label: 'Antioxidant Lifestyle' },
+              { img: '/assets/hydrogen.png', label: 'Hydrogen-Rich', to: '/why-kangen/hydrogen-rich' },
+              { img: '/assets/alkaline.png', label: 'Alkaline Water', to: '/why-kangen/alkaline' },
+              { img: '/assets/antioxidant.png', label: 'Antioxidant Lifestyle', to: '/why-kangen/antioxidant' },
             ].map((f) => (
-              <div key={f.label} className="group relative overflow-hidden rounded-2xl border border-slate-100 shadow-soft">
-                {/* TODO: swap these conceptual images for final brand imagery if needed */}
-                <img src={asset(f.img)} alt={f.label} className="h-44 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
-                <span className="absolute bottom-3 left-3 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-brand-700 backdrop-blur">
-                  {f.label}
-                </span>
+              <div key={f.label} className="flex flex-col">
+                <div className="group relative overflow-hidden rounded-2xl border border-slate-100 shadow-soft">
+                  {/* TODO: swap these conceptual images for final brand imagery if needed */}
+                  <img src={asset(f.img)} alt={f.label} className="h-44 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                  <span className="absolute bottom-3 left-3 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-brand-700 backdrop-blur">
+                    {f.label}
+                  </span>
+                </div>
+                <Link
+                  to={f.to}
+                  className="mt-3 inline-flex items-center justify-center gap-1.5 rounded-full border-2 border-brand-100 bg-white px-5 py-2.5 text-sm font-semibold text-brand-600 transition-all hover:border-brand-300 hover:bg-brand-50"
+                >
+                  Learn More <ArrowRight className="h-4 w-4" />
+                </Link>
               </div>
             ))}
           </div>

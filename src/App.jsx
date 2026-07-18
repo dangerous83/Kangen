@@ -11,6 +11,7 @@ import ChatWidget from './components/ChatWidget'
 
 import Home from './pages/Home'
 import WhyKangenPage from './pages/WhyKangenPage'
+import WhyKangenTopic from './pages/WhyKangenTopic'
 import WaterTypesPage from './pages/WaterTypesPage'
 import ProductsPage from './pages/ProductsPage'
 import OtherProducts from './pages/OtherProducts'
@@ -48,6 +49,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/why-kangen" element={<WhyKangenPage />} />
+            <Route path="/why-kangen/:topic" element={<WhyKangenTopic />} />
             <Route path="/water-types" element={<WaterTypesPage />} />
             <Route path="/products" element={<ProductsPage />} />
             <Route path="/other-products" element={<OtherProducts />} />
