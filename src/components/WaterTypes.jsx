@@ -123,6 +123,30 @@ const waterTypes = [
     ph: 'pH 2.7',
     color: '#a8821f',
     use: 'A strong-acidic setting used around the home for cleaning surfaces and everyday kitchen hygiene.',
+    // Benefits infographic — wording matches Enagic source material verbatim.
+    benefits: {
+      badge: { text: 'Not for Drinking', tone: 'danger' },
+      summary:
+        'This water has cleansing properties. Use Strong Acidic Water to clean kitchen utensils, countertops, and more to prevent cross-contamination.',
+      usage: 'Usages: cleaning and reducing germs, hygiene, and commercial operation.',
+      items: [
+        {
+          icon: Hand,
+          title: 'Hygiene',
+          text: 'Clean your hands or your toothbrush. Keep a spray bottle in your bathroom for easy access.',
+        },
+        {
+          icon: Sparkle,
+          title: 'Cleaning & Reducing Germs',
+          text: 'Clean knives, cutting boards, dish towels, and kitchen cloths etc. Clean in and around the kitchen, which is a breeding ground for germs.',
+        },
+        {
+          icon: Cog,
+          title: 'Commercial',
+          text: 'Beauty salons, hair salons, restaurants, agricultural colleges, daycare centers, pet shops, and nursing homes all benefit greatly from the use of Strong Acidic Water.',
+        },
+      ],
+    },
   },
 ]
 
