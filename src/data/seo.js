@@ -190,6 +190,12 @@ const ROUTES = {
       'Compare Enagic Kangen Water ionizer machines side by side — plates, capacity and best use — and find the right alkaline water machine for your UAE home with Glen.',
     keywords: kw('compare Kangen machines', 'K8 vs SD501', 'best Enagic machine'),
   },
+  '/compare-waters': {
+    title: 'Compare Waters | Tap, Bottled, Distilled, Well & Kangen Water',
+    description:
+      'Compare tap, bottled, distilled and well water with hydrogen-rich Kangen Water — see the differences in quality, minerals and antioxidant properties.',
+    keywords: kw('compare waters', 'tap vs Kangen water', 'bottled water', 'distilled water', 'well water'),
+  },
   '/glen-apostol': {
     title: 'Glen Apostol | Independent Enagic & Kangen Water Consultant — UAE',
     description:
