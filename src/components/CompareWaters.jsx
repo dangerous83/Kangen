@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import Reveal, { SectionHeading } from './Reveal'
 import { useLeadModal } from '../context/LeadModalContext'
+import { asset } from '../lib/asset'
 import { Check, ArrowRight } from './icons'
 
 // AI-generated imagery (Higgsfield · Nano Banana Pro, 1k) served from CDN.
@@ -36,7 +37,7 @@ const otherWaters = [
 
 const kangen = {
   name: 'Kangen Water',
-  img: `${CDN}/hf_20260718_121453_151dfff5-d069-48f4-a06a-792b5f96ef40.png`,
+  img: asset('/assets/kangen-water-machine-a.webp'),
   text: 'With an Enagic Kangen Water machine, your tap water not only becomes delicious by filtering out unwanted sediment and residues — it also gains the beneficial property of being rich in molecular hydrogen, a potent antioxidant.',
 }
 
