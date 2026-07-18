@@ -48,6 +48,7 @@ export const NAV_LINKS = [
     children: [
       { label: 'All Machines', to: '/products', desc: 'Browse the full Enagic range' },
       { label: 'Compare Machines', to: '/compare', desc: 'Side-by-side comparison' },
+      { label: 'Compare Waters', to: '/compare-waters', desc: 'Tap, bottled & Kangen water' },
       { label: 'Other Products', to: '/other-products', desc: 'Anespa, filters, Ukon, Beauté & Wagyu' },
     ],
   },

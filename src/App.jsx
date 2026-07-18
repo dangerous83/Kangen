@@ -18,6 +18,7 @@ import ProductsPage from './pages/ProductsPage'
 import OtherProducts from './pages/OtherProducts'
 import ProductDetail from './pages/ProductDetail'
 import ComparePage from './pages/ComparePage'
+import CompareWatersPage from './pages/CompareWatersPage'
 import GlenPage from './pages/GlenPage'
 import ProcessPage from './pages/ProcessPage'
 import BusinessPage from './pages/BusinessPage'
@@ -56,6 +57,7 @@ export default function App() {
             <Route path="/other-products" element={<OtherProducts />} />
             <Route path="/products/:id" element={<ProductDetail />} />
             <Route path="/compare" element={<ComparePage />} />
+            <Route path="/compare-waters" element={<CompareWatersPage />} />
             <Route path="/glen-apostol" element={<GlenPage />} />
             <Route path="/process" element={<ProcessPage />} />
             <Route path="/business" element={<BusinessPage />} />
