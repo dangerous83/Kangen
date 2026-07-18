@@ -12,6 +12,15 @@ export const CONSULTANT = {
   region: 'United Arab Emirates',
 }
 
+// Customer service line (separate from Glen's personal / WhatsApp number)
+export const CUSTOMER_SERVICE = {
+  phone: '+971 52 155 9156',
+  phoneRaw: '971521559156',
+}
+
+// Direct dial link for customer service
+export const CUSTOMER_SERVICE_PHONE_LINK = `tel:${CUSTOMER_SERVICE.phoneRaw}`
+
 // Pre-filled WhatsApp enquiry message
 export const WHATSAPP_MESSAGE =
   "Hi Glen, I'm interested in Kangen Water and would like to know which machine is best for me."
