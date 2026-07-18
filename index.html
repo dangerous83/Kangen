@@ -151,11 +151,11 @@
         gap: 1.5rem;
       }
 
-      /* Water-filling emblem */
+      /* Seal emblem */
       #app-loader .emblem {
         position: relative;
-        width: 144px;
-        height: 144px;
+        width: 178px;
+        height: 178px;
         display: grid;
         place-items: center;
       }
@@ -165,77 +165,59 @@
         position: absolute;
         inset: 0;
         border-radius: 50%;
-        border: 2px solid rgba(103, 182, 34, 0.45);
+        border: 2px solid rgba(2, 79, 158, 0.35);
         animation: al-pulse 2.8s ease-out infinite;
       }
       #app-loader .emblem::after { animation-delay: 1.4s; }
       @keyframes al-pulse {
-        0% { transform: scale(1); opacity: 0.6; }
-        100% { transform: scale(1.55); opacity: 0; }
+        0% { transform: scale(0.92); opacity: 0.55; }
+        100% { transform: scale(1.5); opacity: 0; }
       }
 
-      #app-loader .orb {
+      /* Faint static track behind the spinning ring */
+      #app-loader .ring-track {
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        border: 3px solid rgba(2, 79, 158, 0.08);
+      }
+      /* Rotating gradient loading ring */
+      #app-loader .ring-spin {
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        background: conic-gradient(from 0deg, rgba(2, 79, 158, 0) 0deg, rgba(31, 107, 189, 0.12) 140deg, #1f6bbd 300deg, #024f9e 360deg);
+        -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 6px), #000 calc(100% - 6px));
+        mask: radial-gradient(farthest-side, transparent calc(100% - 6px), #000 calc(100% - 6px));
+        animation: al-spin 1.5s linear infinite;
+      }
+      @keyframes al-spin { to { transform: rotate(360deg); } }
+
+      /* White disc holding the seal */
+      #app-loader .seal-disc {
         position: relative;
+        z-index: 3;
         width: 144px;
         height: 144px;
         border-radius: 50%;
-        overflow: hidden;
-        background: rgba(255, 255, 255, 0.5);
+        background: #ffffff;
+        display: grid;
+        place-items: center;
         box-shadow:
-          0 20px 50px -18px rgba(2, 79, 158, 0.45),
-          inset 0 0 0 6px rgba(255, 255, 255, 0.4);
+          0 18px 44px -16px rgba(2, 79, 158, 0.5),
+          inset 0 0 0 1px rgba(2, 79, 158, 0.06);
+        animation: al-breathe 3.4s ease-in-out infinite;
       }
-      #app-loader .orb-water {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: 58%;
-        background: linear-gradient(180deg, #4a9fe0 0%, #2f86c9 45%, #3f9b5e 100%);
-        animation: al-level 4.2s ease-in-out infinite;
+      @keyframes al-breathe {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
       }
-      @keyframes al-level {
-        0%, 100% { height: 54%; }
-        50% { height: 64%; }
-      }
-      #app-loader .wave {
-        position: absolute;
-        left: -50%;
-        width: 200%;
-        height: 16px;
-        top: -9px;
-        background-repeat: repeat-x;
-        background-size: 120px 16px;
-      }
-      #app-loader .wave1 {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='16'%3E%3Cpath d='M0 8 Q30 0 60 8 T120 8 V16 H0 Z' fill='%234a9fe0'/%3E%3C/svg%3E");
-        opacity: 0.95;
-        animation: al-wave 3s linear infinite;
-      }
-      #app-loader .wave2 {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='16'%3E%3Cpath d='M0 8 Q30 0 60 8 T120 8 V16 H0 Z' fill='%23ffffff'/%3E%3C/svg%3E");
-        opacity: 0.45;
-        top: -6px;
-        animation: al-wave 5s linear infinite reverse;
-      }
-      @keyframes al-wave {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(120px); }
-      }
-      #app-loader .orb-logo {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 64px;
-        height: 64px;
-        transform: translate(-50%, -50%);
-        z-index: 3;
-        filter: drop-shadow(0 5px 12px rgba(2, 79, 158, 0.4));
-        animation: al-float 5s ease-in-out infinite;
-      }
-      @keyframes al-float {
-        0%, 100% { transform: translate(-50%, -50%); }
-        50% { transform: translate(-50%, -60%); }
+      #app-loader .seal {
+        width: 110px;
+        height: 110px;
+        -o-object-fit: contain;
+           object-fit: contain;
+        filter: drop-shadow(0 6px 14px rgba(2, 79, 158, 0.28));
       }
 
       #app-loader .loader-text { text-align: center; }
@@ -282,9 +264,8 @@
         #app-loader .bubble,
         #app-loader .emblem::before,
         #app-loader .emblem::after,
-        #app-loader .orb-water,
-        #app-loader .wave,
-        #app-loader .orb-logo,
+        #app-loader .ring-spin,
+        #app-loader .seal-disc,
         #app-loader .loader-bar span { animation: none; }
       }
     </style>
@@ -304,13 +285,11 @@
 
       <div class="loader-content">
         <div class="emblem">
-          <div class="orb">
-            <div class="orb-water">
-              <span class="wave wave1"></span>
-              <span class="wave wave2"></span>
-            </div>
-          </div>
-          <img src="./assets/icon.png" alt="" class="orb-logo" />
+          <span class="ring-track"></span>
+          <span class="ring-spin"></span>
+          <span class="seal-disc">
+            <img src="./assets/logo.png" alt="Enagic Independent Distributor" class="seal" />
+          </span>
         </div>
         <div class="loader-text">
           <h1>Kangen Water</h1>
