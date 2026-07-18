@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Reveal, { SectionHeading } from './Reveal'
 import { useLeadModal } from '../context/LeadModalContext'
-import { Drop, Sparkle, Hand, Check } from './icons'
+import { Drop, Sparkle, Hand, Check, Cog } from './icons'
 
 // Educational only — compliant wording, no medical claims.
 const waterTypes = [
@@ -11,9 +11,9 @@ const waterTypes = [
     ph: 'pH 11.0+',
     color: '#024f9e',
     use: 'A higher-alkaline setting commonly used around the kitchen for everyday cleaning and food-preparation tasks.',
-    // Benefits infographic (Strong Kangen Water only) — wording matches Enagic source material verbatim.
+    // Benefits infographic — wording matches Enagic source material verbatim.
     benefits: {
-      warning: 'Not for Drinking',
+      badge: { text: 'Not for Drinking', tone: 'danger' },
       summary:
         'Not for drinking. Strong Kangen Water preserves hygiene in your daily life due to its strong cleaning effect. It has dissolving and heat conducting benefits.',
       usage: 'Usage: food preparation and cleaning.',
@@ -46,6 +46,35 @@ const waterTypes = [
     ph: 'pH 8.5 – 9.5',
     color: '#1f6bbd',
     use: 'The signature hydrogen-rich alkaline drinking water many customers enjoy for daily hydration.',
+    // Benefits infographic — wording matches Enagic source material verbatim.
+    benefits: {
+      badge: { text: 'For Drinking', tone: 'safe' },
+      summary:
+        'This type of water is perfect for drinking and healthy cooking. This electrolytically-reduced, hydrogen-rich water works to restore your body to a more alkaline state, which is optimal for good health.',
+      usage: 'Usage: drinking, food preparation, coffee and tea, soups and stews, and watering plants.',
+      items: [
+        {
+          icon: Drop,
+          title: 'Drinking',
+          text: 'Drink Kangen Water® throughout the day. Unlike tap water, Kangen Water® has no unpleasant odor, tastes lighter, and has a pleasantly sweet flavor.',
+        },
+        {
+          icon: Sparkle,
+          title: 'Coffee & Tea',
+          text: 'You’ll be surprised at the wonderful color, taste, and aroma of coffee or tea prepared with Kangen Water®. You can also use less coffee or tea and still achieve a full rich taste due to the water’s extractable ability.',
+        },
+        {
+          icon: Hand,
+          title: 'Food Prep',
+          text: 'Clean vegetables and fish. Enhance the flavor of broccoli, onions, bamboo etc. by pre-boiling them in Kangen Water®. Use less condiments and salt.',
+        },
+        {
+          icon: Cog,
+          title: 'Cooking',
+          text: 'Kangen Water® draws out the flavor of ingredients so they get tender and juicy. Therefore, food doesn’t need as much seasoning, and excess salt can be avoided.',
+        },
+      ],
+    },
   },
   {
     name: 'Clean Water',
@@ -145,17 +174,31 @@ export default function WaterTypes() {
                 {/* Benefits infographic — Strong Kangen Water only */}
                 {current.benefits && (
                   <div className="mt-8 border-t border-slate-100 pt-8">
-                    {/* Summary + usage + "not for drinking" callout */}
+                    {/* Summary + usage + drinking-safety callout */}
                     <div className="flex flex-col gap-4 rounded-2xl bg-brand-50/70 p-5 sm:flex-row sm:items-start sm:gap-5">
-                      <span className="inline-flex flex-none items-center gap-1.5 self-center rounded-full bg-red-50 px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-red-600 sm:self-start">
+                      <span
+                        className={`inline-flex flex-none items-center gap-1.5 self-center rounded-full px-3 py-1.5 text-xs font-bold uppercase tracking-wide sm:self-start ${
+                          current.benefits.badge.tone === 'safe'
+                            ? 'bg-wellness/10 text-wellness-dark'
+                            : 'bg-red-50 text-red-600'
+                        }`}
+                      >
                         <svg viewBox="0 0 20 20" fill="currentColor" className="h-3.5 w-3.5" aria-hidden="true">
-                          <path
-                            fillRule="evenodd"
-                            d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.515 2.625H3.72c-1.345 0-2.188-1.458-1.515-2.625L8.485 2.495zM10 6a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 6zm0 8a1 1 0 100-2 1 1 0 000 2z"
-                            clipRule="evenodd"
-                          />
+                          {current.benefits.badge.tone === 'safe' ? (
+                            <path
+                              fillRule="evenodd"
+                              d="M16.704 5.29a1 1 0 010 1.42l-7.5 7.5a1 1 0 01-1.42 0l-3.5-3.5a1 1 0 011.42-1.42l2.79 2.79 6.79-6.79a1 1 0 011.42 0z"
+                              clipRule="evenodd"
+                            />
+                          ) : (
+                            <path
+                              fillRule="evenodd"
+                              d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.515 2.625H3.72c-1.345 0-2.188-1.458-1.515-2.625L8.485 2.495zM10 6a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 6zm0 8a1 1 0 100-2 1 1 0 000 2z"
+                              clipRule="evenodd"
+                            />
+                          )}
                         </svg>
-                        {current.benefits.warning}
+                        {current.benefits.badge.text}
                       </span>
                       <div className="space-y-1.5 text-sm leading-relaxed text-slate-600">
                         <p>{current.benefits.summary}</p>
