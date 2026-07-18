@@ -81,6 +81,24 @@ const waterTypes = [
     ph: 'pH 7.0',
     color: '#67b622',
     use: 'Filtered, neutral water — a clean everyday choice for general use and for taking with supplements.',
+    // Benefits infographic — wording matches Enagic source material verbatim.
+    benefits: {
+      badge: { text: 'Safe for Drinking', tone: 'safe' },
+      summary:
+        'This type of water is perfect for drinking and healthy cooking. This electrolytically-reduced, hydrogen-rich water works to restore your body to a more alkaline state, which is optimal for good health.',
+      items: [
+        {
+          icon: Drop,
+          title: 'Baby Food',
+          text: 'Use water pH 7.0 when preparing baby food.',
+        },
+        {
+          icon: Check,
+          title: 'Medication',
+          text: 'Neutral water is delicious drinking water that is easily absorbed by your body. Take your medicine with this water.',
+        },
+      ],
+    },
   },
   {
     name: 'Beauty Water',
@@ -202,7 +220,9 @@ export default function WaterTypes() {
                       </span>
                       <div className="space-y-1.5 text-sm leading-relaxed text-slate-600">
                         <p>{current.benefits.summary}</p>
-                        <p className="font-semibold text-brand-700">{current.benefits.usage}</p>
+                        {current.benefits.usage && (
+                          <p className="font-semibold text-brand-700">{current.benefits.usage}</p>
+                        )}
                       </div>
                     </div>
 

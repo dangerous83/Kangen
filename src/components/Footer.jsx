@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { CONSULTANT, WHATSAPP_LINK, PHONE_LINK } from '../data/site'
+import { CONSULTANT, WHATSAPP_LINK, CUSTOMER_SERVICE, CUSTOMER_SERVICE_PHONE_LINK } from '../data/site'
 import { useLeadModal } from '../context/LeadModalContext'
 import { asset } from '../lib/asset'
 import { WhatsApp, Phone, MapPin, ArrowRight } from './icons'
@@ -59,9 +59,10 @@ export default function Footer() {
           <p className="mt-5 text-lg font-bold text-brand-700">{CONSULTANT.name}</p>
           <p className="text-sm text-slate-500">Independent Enagic / Kangen Water Consultant</p>
           <div className="mt-5 space-y-2 text-sm">
-            <a href={PHONE_LINK} className="flex items-center gap-2 font-semibold text-brand-600 transition-colors hover:text-brand-700">
-              <Phone className="h-4 w-4 text-wellness" /> {CONSULTANT.phone}
+            <a href={CUSTOMER_SERVICE_PHONE_LINK} className="flex items-center gap-2 font-semibold text-brand-600 transition-colors hover:text-brand-700">
+              <Phone className="h-4 w-4 text-wellness" /> {CUSTOMER_SERVICE.phone}
             </a>
+            <p className="text-xs font-medium uppercase tracking-wide text-slate-400">Customer Service</p>
             <p className="flex items-center gap-2 text-slate-500">
               <MapPin className="h-4 w-4 text-wellness" /> {CONSULTANT.region}
             </p>
