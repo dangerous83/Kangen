@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { WHATSAPP_LINK } from '../data/site'
 import { useLeadModal } from '../context/LeadModalContext'
 import { asset } from '../lib/asset'
@@ -6,6 +7,7 @@ import { WhatsApp } from './icons'
 
 export default function Hero() {
   const { openLead } = useLeadModal()
+  const [showMore, setShowMore] = useState(false)
 
   return (
     // On desktop the section sits under the fixed navbar so the image is full-bleed.
@@ -59,6 +61,55 @@ export default function Hero() {
               <strong className="font-semibold text-brand-700">Glen Apostol</strong> — expert advice
               and machine comparison before you buy.
             </motion.p>
+
+            {/* Expandable mission statement — collapsed by default, toggled by the button below */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mt-3"
+            >
+              <button
+                type="button"
+                onClick={() => setShowMore((v) => !v)}
+                aria-expanded={showMore}
+                className="inline-flex items-center gap-1 text-sm font-semibold text-brand-600 underline-offset-4 transition-colors hover:text-brand-700 hover:underline"
+              >
+                {showMore ? 'Show less' : 'Read more'}
+                <svg
+                  className={`h-4 w-4 transition-transform duration-300 ${showMore ? 'rotate-180' : ''}`}
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </button>
+
+              <AnimatePresence initial={false}>
+                {showMore && (
+                  <motion.p
+                    key="hero-mission"
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.35, ease: 'easeInOut' }}
+                    className="overflow-hidden"
+                  >
+                    <span className="mt-3 block max-w-md text-base leading-relaxed text-slate-600">
+                      Success isn’t about selling a product—it’s about serving people, improving
+                      lives, and building a legacy of health, purpose, and freedom. As an
+                      International Kangen Water distributor, my mission is to educate, inspire, and
+                      empower families around the world to make better choices for their future.
+                    </span>
+                  </motion.p>
+                )}
+              </AnimatePresence>
+            </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
