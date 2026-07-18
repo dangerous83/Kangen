@@ -21,12 +21,11 @@ export default function GlenProfile() {
         <Reveal className="lg:col-span-5" y={32}>
           <div className="relative">
             <div className="absolute -inset-3 -z-10 rounded-[2rem] bg-gradient-to-tr from-brand-400/20 to-gold/25 blur-2xl" />
-            <div className="overflow-hidden rounded-[1.75rem] border-2 border-gold/30 bg-white shadow-card">
-              {/* TODO: replace with a dedicated Glen profile photo if available */}
+            <div className="aspect-[4/5] overflow-hidden rounded-[1.75rem] border-2 border-gold/30 bg-white shadow-card">
               <img
-                src={asset('/assets/glen-apostol.png')}
+                src={asset('/assets/glen-apostol-portrait.webp')}
                 alt="Portrait of Glen Apostol, Enagic Kangen Water consultant"
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover object-top"
                 loading="lazy"
               />
             </div>
