@@ -15,6 +15,7 @@
 
 import { CONSULTANT } from './site'
 import { machines, otherProducts, products } from './products'
+import { waters } from './waters'
 import { faqs } from './faqs'
 
 // Canonical production origin (custom domain).
@@ -276,6 +277,35 @@ export function getRouteSeo(pathname) {
               { name: 'Home', path: '/' },
               { name: isMachine ? 'Machines' : 'Other Products', path: isMachine ? '/products' : '/other-products' },
               { name: p.name, path },
+            ]),
+          ],
+        },
+      }
+    }
+  }
+
+  // --- Compare Waters detail pages (dynamic) ---
+  const waterMatch = path.match(/^\/compare-waters\/([^/]+)$/)
+  if (waterMatch) {
+    const w = waters.find((x) => x.slug === waterMatch[1])
+    if (w) {
+      const title = `${w.name} — Compare Waters | Kangen Water UAE`
+      const description = w.text.length > 155 ? `${w.text.slice(0, 152)}…` : w.text
+      return {
+        title,
+        description,
+        keywords: kw(w.name, 'compare waters', 'Kangen Water', 'water quality'),
+        canonical: canonicalFor(path),
+        jsonLd: {
+          '@context': 'https://schema.org',
+          '@graph': [
+            organizationSchema(),
+            websiteSchema(),
+            webPage(path, title, description),
+            breadcrumb([
+              { name: 'Home', path: '/' },
+              { name: 'Compare Waters', path: '/compare-waters' },
+              { name: w.name, path },
             ]),
           ],
         },
