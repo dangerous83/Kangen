@@ -55,7 +55,7 @@ export default function Footer() {
       <div className="container-px grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
         {/* Brand */}
         <div>
-          <img src={asset('/assets/logo.png')} alt="Enagic Kangen Water — Glen Apostol" className="h-9 w-auto" />
+          <img src={asset('/assets/geln-logo.png')} alt="Enagic Kangen Water — Glen Apostol" className="h-9 w-auto" />
           <p className="mt-5 text-lg font-bold text-brand-700">{CONSULTANT.name}</p>
           <p className="text-sm text-slate-500">Independent Enagic / Kangen Water Consultant</p>
           <div className="mt-5 space-y-2 text-sm">

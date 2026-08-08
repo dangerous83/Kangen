@@ -46,8 +46,7 @@ export default function Header() {
       <nav className="container-px flex h-[4.5rem] items-center justify-between" aria-label="Primary">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3" aria-label="Glen Apostol — Kangen Water Consultant">
-          {/* TODO: replace /assets/logo.png with the official logo if updated */}
-          <img src={asset('/assets/logo.png')} alt="Enagic Kangen Water — Glen Apostol" className="h-9 w-auto" />
+          <img src={asset('/assets/geln-logo.png')} alt="Enagic Kangen Water — Glen Apostol" className="h-9 w-auto" />
         </Link>
 
         {/* Desktop nav */}
