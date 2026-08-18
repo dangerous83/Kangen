@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { WHATSAPP_LINK, CONSULTANT } from '../data/site'
+import { WHATSAPP_LINK, CONSULTANT, BUSINESS_EMAIL, BUSINESS_EMAIL_LINK } from '../data/site'
 import { getAnswer, SUGGESTIONS, WHATSAPP_DISPLAY } from '../data/knowledge'
-import { WhatsApp, Chat, Close, ArrowRight } from './icons'
+import { WhatsApp, Chat, Close, ArrowRight, Mail } from './icons'
 
 // ============================================================
 // Floating bottom-right widget: a WhatsApp quick-contact button
@@ -124,6 +124,15 @@ export default function ChatWidget() {
                 <Close className="h-5 w-5" />
               </button>
             </div>
+
+            {/* Email quick-contact strip */}
+            <a
+              href={BUSINESS_EMAIL_LINK}
+              className="flex items-center gap-2 border-b border-slate-100 bg-brand-50/60 px-4 py-2 text-xs font-semibold text-brand-700 transition-colors hover:bg-brand-50"
+            >
+              <Mail className="h-4 w-4 flex-none text-wellness" />
+              <span className="truncate">{BUSINESS_EMAIL}</span>
+            </a>
 
             {/* Messages */}
             <div ref={scrollRef} className="flex-1 space-y-3 overflow-y-auto bg-slate-50/70 px-4 py-4">

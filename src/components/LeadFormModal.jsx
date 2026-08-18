@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { motion, AnimatePresence } from 'framer-motion'
 import { productOptions } from '../data/products'
-import { CONSULTANT } from '../data/site'
+import { CONSULTANT, BUSINESS_EMAIL } from '../data/site'
 import { Close, Check, WhatsApp } from './icons'
 
 const contactMethods = ['WhatsApp', 'Phone Call', 'Email']
@@ -64,7 +64,12 @@ export default function LeadFormModal({ isOpen, onClose, defaultProduct }) {
   }
 
   const onSubmit = async (data) => {
-    const payload = { ...data, consultant: CONSULTANT.name, submittedAt: new Date().toISOString() }
+    const payload = {
+      ...data,
+      consultant: CONSULTANT.name,
+      sendTo: BUSINESS_EMAIL,
+      submittedAt: new Date().toISOString(),
+    }
 
     // ===================================================================
     // FRONT-END SUBMISSION FLOW
@@ -88,6 +93,25 @@ export default function LeadFormModal({ isOpen, onClose, defaultProduct }) {
     // ===================================================================
     console.log('📩 New lead for Glen Apostol:', payload)
     await new Promise((r) => setTimeout(r, 1100)) // simulated network call
+
+    // Open the visitor's mail client pre-filled with their inquiry so the
+    // lead lands in the official business inbox even before a backend is wired up.
+    const subject = `New Kangen enquiry from ${data.fullName}`
+    const body = [
+      `Name: ${data.fullName}`,
+      `Phone: ${data.phone}`,
+      `Email: ${data.email}`,
+      `Location: ${data.location}`,
+      `Interested Product: ${data.product}`,
+      `Preferred Contact: ${data.contactMethod}`,
+      '',
+      `Message:`,
+      data.message || '(none)',
+    ].join('\n')
+    const mailto = `mailto:${BUSINESS_EMAIL}?subject=${encodeURIComponent(
+      subject,
+    )}&body=${encodeURIComponent(body)}`
+    window.open(mailto, '_blank', 'noopener,noreferrer')
 
     setSubmitted(true)
   }

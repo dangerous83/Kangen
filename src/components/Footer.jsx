@@ -1,8 +1,15 @@
 import { Link } from 'react-router-dom'
-import { CONSULTANT, WHATSAPP_LINK, CUSTOMER_SERVICE, CUSTOMER_SERVICE_PHONE_LINK } from '../data/site'
+import {
+  CONSULTANT,
+  WHATSAPP_LINK,
+  CUSTOMER_SERVICE,
+  CUSTOMER_SERVICE_PHONE_LINK,
+  BUSINESS_EMAIL,
+  BUSINESS_EMAIL_LINK,
+} from '../data/site'
 import { useLeadModal } from '../context/LeadModalContext'
 import { asset } from '../lib/asset'
-import { WhatsApp, Phone, MapPin, ArrowRight } from './icons'
+import { WhatsApp, Phone, MapPin, Mail, ArrowRight } from './icons'
 
 const exploreLinks = [
   { label: 'Why Kangen Water', to: '/why-kangen' },
@@ -66,6 +73,12 @@ export default function Footer() {
             <p className="flex items-center gap-2 text-slate-500">
               <MapPin className="h-4 w-4 text-wellness" /> {CONSULTANT.region}
             </p>
+            <a
+              href={BUSINESS_EMAIL_LINK}
+              className="flex items-center gap-2 break-all text-slate-500 transition-colors hover:text-brand-600"
+            >
+              <Mail className="h-4 w-4 text-wellness" /> {BUSINESS_EMAIL}
+            </a>
           </div>
         </div>
 
