@@ -18,6 +18,10 @@ export const CUSTOMER_SERVICE = {
   phoneRaw: '971521559156',
 }
 
+// Official business email — used in the footer, chat widget, and lead form.
+export const BUSINESS_EMAIL = 'info@kangenwateralife4u.com'
+export const BUSINESS_EMAIL_LINK = `mailto:${BUSINESS_EMAIL}`
+
 // Direct dial link for customer service
 export const CUSTOMER_SERVICE_PHONE_LINK = `tel:${CUSTOMER_SERVICE.phoneRaw}`
 
