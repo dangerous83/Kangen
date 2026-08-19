@@ -215,6 +215,26 @@ export default function ChatWidget() {
       </AnimatePresence>
 
       {/* -------------------- Floating buttons -------------------- */}
+      {/* Email quick-contact pill (sits above WhatsApp when the panel is closed) */}
+      <AnimatePresence>
+        {!open && (
+          <motion.a
+            key="email-fab"
+            href={BUSINESS_EMAIL_LINK}
+            initial={{ opacity: 0, x: 24 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 24 }}
+            className="flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-xs font-semibold text-brand-700 shadow-[0_10px_30px_-6px_rgba(2,79,158,0.35)] ring-1 ring-brand-100 transition-transform hover:scale-105"
+            aria-label={`Email us at ${BUSINESS_EMAIL}`}
+            title={`Email us at ${BUSINESS_EMAIL}`}
+          >
+            <Mail className="h-4 w-4 text-wellness" />
+            <span className="hidden sm:inline">{BUSINESS_EMAIL}</span>
+            <span className="sm:hidden">Email us</span>
+          </motion.a>
+        )}
+      </AnimatePresence>
+
       {/* WhatsApp quick-contact (hidden while the chat panel is open to reduce clutter) */}
       <AnimatePresence>
         {!open && (
