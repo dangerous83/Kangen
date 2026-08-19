@@ -1,6 +1,7 @@
 import Reveal, { SectionHeading } from './Reveal'
 import { useLeadModal } from '../context/LeadModalContext'
-import { Doc, Layers, Users, Rocket } from './icons'
+import { Doc, Layers, Users, Rocket, Mail } from './icons'
+import { BUSINESS_EMAIL, BUSINESS_EMAIL_LINK } from '../data/site'
 
 const cards = [
   { icon: Doc, title: 'Learn the Product', text: 'Understand the machines, water types and daily use inside out.' },
@@ -59,6 +60,53 @@ export default function BusinessOpportunity() {
             ))}
           </div>
         </div>
+
+        {/* How to become a business partner */}
+        <Reveal delay={0.15}>
+          <div className="mt-12 overflow-hidden rounded-3xl border-2 border-gold/40 bg-gradient-to-br from-white/10 to-white/[0.03] p-8 backdrop-blur sm:p-10">
+            <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+              <div className="max-w-2xl">
+                <span className="inline-flex items-center gap-2 rounded-full border border-gold/50 bg-gold/15 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-gold-light">
+                  ★ Become a Partner
+                </span>
+                <h3 className="mt-4 text-2xl font-extrabold tracking-tight text-white sm:text-3xl">
+                  How to Make a Business Partner?
+                </h3>
+                <p className="mt-4 text-base leading-relaxed text-brand-50">
+                  Becoming an Enagic business partner is straightforward. Send us your details by
+                  email and we will guide you through the four steps — a short discovery call to
+                  understand your goals, product and distributor-model orientation, official
+                  registration with Enagic, and ongoing mentoring from Glen so you start
+                  professionally and grow responsibly. There are no shortcuts and no pressure — just
+                  a clear, compliant path to building your own Kangen Water business.
+                </p>
+              </div>
+              <div className="flex-none">
+                <a
+                  href={`${BUSINESS_EMAIL_LINK}?subject=${encodeURIComponent(
+                    'I want to become a Kangen business partner',
+                  )}&body=${encodeURIComponent(
+                    'Hi Glen,\n\nI would like to learn how to become an Enagic / Kangen Water business partner. Please share the next steps.\n\nThank you.',
+                  )}`}
+                  className="inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3.5 text-sm font-bold text-white shadow-gold transition-transform hover:-translate-y-0.5"
+                  aria-label={`Email ${BUSINESS_EMAIL} about becoming a partner`}
+                >
+                  <Mail className="h-5 w-5" />
+                  Email Us to Become a Partner
+                </a>
+                <p className="mt-3 text-center text-xs text-brand-100">
+                  or write directly to{' '}
+                  <a
+                    href={BUSINESS_EMAIL_LINK}
+                    className="font-semibold text-gold-light underline-offset-2 hover:underline"
+                  >
+                    {BUSINESS_EMAIL}
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </Reveal>
 
         {/* Disclaimer */}
         <Reveal delay={0.2}>
