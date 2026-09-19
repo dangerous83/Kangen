@@ -84,7 +84,7 @@ export default function RouteSeo() {
       window.gtag('event', 'page_view', {
         page_title: seo.title,
         page_location: window.location.href,
-        page_path: `/#${pathname}`,
+        page_path: pathname,
       })
     }
   }, [pathname])

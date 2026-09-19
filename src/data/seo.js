@@ -1,12 +1,14 @@
 // ============================================================
 // Central SEO configuration + per-route metadata and JSON-LD.
 //
-// This site is a HashRouter SPA, so there is only one physical
-// HTML file. `RouteSeo` (rendered once inside the router) reads
-// the current path and rewrites the document <title>, meta tags,
-// Open Graph / Twitter tags and a per-page JSON-LD <script> on
-// every navigation — giving each "page" its own structured data
-// and keyword-rich metadata for search engines and social shares.
+// This site is a BrowserRouter SPA served as static files (GitHub
+// Pages), so every route resolves to the same physical HTML file
+// via the 404.html redirect trick, but each one has a real, clean,
+// individually indexable URL. `RouteSeo` (rendered once inside the
+// router) reads the current path and rewrites the document <title>,
+// meta tags, Open Graph / Twitter tags and a per-page JSON-LD
+// <script> on every navigation — giving each page its own structured
+// data and keyword-rich metadata for search engines and social shares.
 //
 // Strong target keywords: Kangen Water, alkaline water,
 // ionised/ionized water, hydrogen-rich water, Enagic, water
@@ -72,9 +74,8 @@ const kw = (...extra) => [...BASE_KEYWORDS, ...extra].join(', ')
 // Build an absolute URL from a /public asset path.
 const abs = (path) => `${SITE.url}/${String(path).replace(/^\/+/, '')}`
 
-// Hash-style canonical so links resolve inside the SPA.
-const canonicalFor = (pathname) =>
-  pathname === '/' ? `${SITE.url}/` : `${SITE.url}/#${pathname}`
+// Clean canonical URL (BrowserRouter — real, individually indexable paths).
+const canonicalFor = (pathname) => `${SITE.url}${pathname === '/' ? '/' : pathname}`
 
 // ---- Reusable schema fragments -------------------------------------------
 

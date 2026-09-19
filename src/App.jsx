@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react'
-import { HashRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { LeadModalContext } from './context/LeadModalContext'
 import RouteSeo from './components/RouteSeo'
 import ScrollToTop from './components/ScrollToTop'
@@ -41,8 +41,10 @@ export default function App() {
   const closeLead = useCallback(() => setModalOpen(false), [])
 
   return (
-    // HashRouter keeps deep links working on GitHub Pages (no server config needed)
-    <HashRouter>
+    // Clean URLs for real per-page indexing. Deep links on GitHub Pages are
+    // handled by public/404.html (redirect trick) which this router decodes
+    // back to the real path — see index.dev.html's inline redirect script.
+    <BrowserRouter>
       <LeadModalContext.Provider value={{ openLead }}>
         <RouteSeo />
         <ScrollToTop />
@@ -77,6 +79,6 @@ export default function App() {
         <ChatWidget />
         <LeadFormModal isOpen={modalOpen} onClose={closeLead} defaultProduct={defaultProduct} />
       </LeadModalContext.Provider>
-    </HashRouter>
+    </BrowserRouter>
   )
 }
