@@ -31,17 +31,29 @@ export const SITE = {
 // Keywords reused across the site. Per-page lists extend this base.
 const BASE_KEYWORDS = [
   'Kangen Water',
+  'Kangen Water UAE',
+  'Kangen Water Dubai',
+  'Kangen Water benefits',
   'alkaline water',
-  'ionized water',
-  'ionised water',
   'hydrogen water',
+  'ionized alkaline water',
+  'ionised water',
   'hydrogen-rich water',
   'Enagic',
-  'water ionizer',
-  'alkaline water machine',
-  'Kangen Water UAE',
-  'alkaline water Dubai',
   'Enagic UAE',
+  'alkaline water machine',
+  'hydrogen water machine',
+  'Kangen Water machine',
+  'Kangen Water ionizer',
+  'water ionizer machine',
+  'alkaline water ionizer',
+  'hydrogen water ionizer',
+  'Kangen Water machine price',
+  'Kangen Water machine Dubai',
+  'Kangen Water machine UAE',
+  'buy Kangen Water machine',
+  'best water ionizer UAE',
+  'alkaline water Dubai',
   'certified medical device',
   'alkalize water',
   'high technology water machine',
@@ -82,6 +94,9 @@ const organizationSchema = () => ({
     'Independent Enagic / Kangen Water consultant in the UAE offering expert guidance on alkaline, ionised and hydrogen-rich water, Leveluk water ionizer machines, machine comparison and after-sales support.',
   knowsAbout: [
     'Kangen Water',
+    'Kangen Water UAE',
+    'Kangen Water Dubai',
+    'Kangen Water machine',
     'Alkaline water',
     'Ionised water',
     'Hydrogen-rich water',
@@ -163,7 +178,15 @@ const ROUTES = {
     title: 'Kangen Water UAE | Alkaline Ionized Water Machines — Glen Apostol',
     description:
       'Discover Kangen Water in the UAE — genuine Enagic alkaline, ionised and hydrogen-rich water ionizer machines. Get free, expert guidance from consultant Glen Apostol.',
-    keywords: kw('buy Kangen Water UAE', 'Enagic Leveluk', 'best alkaline water machine'),
+    keywords: kw(
+      'buy Kangen Water UAE',
+      'Enagic Leveluk',
+      'best alkaline water machine',
+      'Kangen Water machine price UAE',
+      'buy Kangen Water machine UAE',
+      'Kangen Water distributor UAE',
+      'Kangen Water machine near me',
+    ),
   },
   '/why-kangen': {
     title: 'Why Kangen Water? Alkaline & Hydrogen-Rich Water Benefits | UAE',
@@ -199,7 +222,15 @@ const ROUTES = {
     title: 'Kangen Water Machines | Enagic Leveluk K8, SD501 & More | UAE',
     description:
       'Browse the full range of Enagic Kangen Water ionizer machines — Leveluk K8, SD501DX, SD501 Platinum, Super501 and JR IV. Compare alkaline water machines with Glen.',
-    keywords: kw('Kangen Water machines', 'Enagic Leveluk K8', 'SD501', 'water ionizer price UAE'),
+    keywords: kw(
+      'Kangen Water machines',
+      'Enagic Leveluk K8',
+      'SD501',
+      'water ionizer price UAE',
+      'Kangen Water machine price UAE',
+      'Kangen Water machine Dubai',
+      'buy Kangen Water machine UAE',
+    ),
   },
   '/other-products': {
     title: 'Anespa DX, Filters, Ukon, Beauté & Wagyu | Enagic Products UAE',
@@ -211,7 +242,7 @@ const ROUTES = {
     title: 'Compare Kangen Water Machines | Enagic Leveluk Models Side-by-Side',
     description:
       'Compare Enagic Kangen Water ionizer machines side by side — plates, capacity and best use — and find the right alkaline water machine for your UAE home with Glen.',
-    keywords: kw('compare Kangen machines', 'K8 vs SD501', 'best Enagic machine'),
+    keywords: kw('compare Kangen machines', 'K8 vs SD501', 'best Enagic machine', 'best water ionizer UAE'),
   },
   '/compare-waters': {
     title: 'Compare Waters | Tap, Bottled, Distilled, Well & Kangen Water',
@@ -223,7 +254,13 @@ const ROUTES = {
     title: 'Glen Apostol | Independent Enagic & Kangen Water Consultant — UAE',
     description:
       'Meet Glen Apostol, your dedicated independent Enagic / Kangen Water consultant in the UAE — personal guidance on alkaline water machines and ongoing after-sales support.',
-    keywords: kw('Glen Apostol', 'Kangen Water consultant UAE', 'Enagic distributor UAE'),
+    keywords: kw(
+      'Glen Apostol',
+      'Kangen Water consultant UAE',
+      'Enagic distributor UAE',
+      'Kangen Water ionizer Dubai',
+      'Kangen Water machine Dubai',
+    ),
   },
   '/process': {
     title: 'How It Works | Your 4-Step Kangen Water Consultation — UAE',
@@ -253,7 +290,13 @@ const ROUTES = {
     title: 'Contact Glen Apostol | Free Kangen Water Consultation — UAE',
     description:
       'Contact Glen Apostol for a free, no-obligation Kangen Water consultation in the UAE. Call or WhatsApp +971 56 664 4147 for expert Enagic alkaline water guidance.',
-    keywords: kw('contact Kangen Water UAE', 'free water consultation', 'WhatsApp Enagic UAE'),
+    keywords: kw(
+      'contact Kangen Water UAE',
+      'free water consultation',
+      'WhatsApp Enagic UAE',
+      'Kangen Water distributor UAE',
+      'Kangen Water machine near me',
+    ),
   },
 }
 
