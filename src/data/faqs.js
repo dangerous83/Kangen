@@ -36,4 +36,12 @@ export const faqs = [
     q: 'Is this a medical product?',
     a: 'Enagic machines are not presented as a cure or treatment for medical conditions. Glen can explain product features, daily use, and machine options, but customers should consult a qualified health professional for medical advice.',
   },
+  {
+    q: 'How much does a Kangen Water machine cost in the UAE?',
+    a: 'Pricing depends on the model — from the compact JR IV to the flagship K8 — and current Enagic UAE terms. Message Glen on WhatsApp for an up-to-date Kangen Water machine price and a recommendation that fits your household and budget.',
+  },
+  {
+    q: 'Where can I find a Kangen Water distributor in Dubai or the UAE?',
+    a: 'Glen Apostol is an independent Enagic / Kangen Water distributor serving customers across Dubai and the wider UAE. Contact him directly for a free consultation, machine demo and ongoing local support — no need to search for a Kangen Water machine "near me", Glen comes to you.',
+  },
 ]

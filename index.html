@@ -2,6 +2,25 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // https://github.com/rafgraph/spa-github-pages
+      // Decodes the path public/404.html re-encoded into the query string
+      // for a deep link (e.g. /products/k8), restoring the real URL via
+      // history.replaceState before BrowserRouter reads the current path.
+      (function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search
+            .slice(1)
+            .split('&')
+            .map(function (s) {
+              return s.replace(/~and~/g, '&')
+            })
+            .join('?')
+          window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash)
+        }
+      })(window.location)
+    </script>
     <!-- Favicons -->
     <link rel="icon" type="image/png" href="./assets/icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/icon.png" />
@@ -28,7 +47,7 @@
     />
     <meta
       name="keywords"
-      content="Kangen Water, alkaline water, ionized water, ionised water, hydrogen water, hydrogen-rich water, Enagic, water ionizer, alkaline water machine, Kangen Water UAE, alkaline water Dubai, Enagic UAE, Leveluk K8, SD501, certified medical device, alkalize water, high technology water machine, good for hydration, healthy lifestyle, household water machine, reduce cost water consumption, family health insurance, health and beauty, best for restaurants, hotels and hospitals, electrolytes water"
+      content="Kangen Water, Kangen Water UAE, Kangen Water Dubai, Kangen Water benefits, alkaline water, hydrogen water, ionized alkaline water, ionised water, hydrogen-rich water, Enagic, Enagic UAE, alkaline water machine, hydrogen water machine, Kangen Water machine, Kangen Water ionizer, water ionizer machine, alkaline water ionizer, hydrogen water ionizer, Kangen Water machine price, Kangen Water machine price UAE, Kangen Water machine Dubai, Kangen Water machine UAE, buy Kangen Water machine, buy Kangen Water machine UAE, best water ionizer UAE, Kangen Water ionizer Dubai, alkaline water machine UAE, hydrogen water machine Dubai, Kangen Water distributor UAE, Kangen Water machine near me, Leveluk K8, SD501, certified medical device, alkalize water, high technology water machine, good for hydration, healthy lifestyle, household water machine, reduce cost water consumption, family health insurance, health and beauty, best for restaurants, hotels and hospitals, electrolytes water"
     />
     <meta name="author" content="Glen Apostol" />
     <meta name="robots" content="index, follow" />
@@ -81,7 +100,7 @@
             "areaServed": { "@type": "Country", "name": "United Arab Emirates" },
             "priceRange": "$$",
             "description": "Independent Enagic / Kangen Water consultant in the UAE offering expert guidance on alkaline, ionised and hydrogen-rich water, Leveluk water ionizer machines, machine comparison and after-sales support.",
-            "knowsAbout": ["Kangen Water", "Alkaline water", "Ionised water", "Hydrogen-rich water", "Enagic water ionizer machines", "Leveluk K8", "Leveluk SD501", "Certified medical device", "Alkalize water", "High technology water machine", "Good for hydration", "Healthy lifestyle", "Household water machine", "Reduce cost of water consumption", "Family health insurance", "Health and beauty", "Best for restaurants, hotels and hospitals", "Electrolytes water"],
+            "knowsAbout": ["Kangen Water", "Kangen Water UAE", "Kangen Water Dubai", "Kangen Water machine", "Alkaline water", "Ionised water", "Hydrogen-rich water", "Enagic water ionizer machines", "Leveluk K8", "Leveluk SD501", "Certified medical device", "Alkalize water", "High technology water machine", "Good for hydration", "Healthy lifestyle", "Household water machine", "Reduce cost of water consumption", "Family health insurance", "Health and beauty", "Best for restaurants, hotels and hospitals", "Electrolytes water"],
             "contactPoint": {
               "@type": "ContactPoint",
               "telephone": "+971566644147",
@@ -269,7 +288,7 @@
         #app-loader .loader-bar span { animation: none; }
       }
     </style>
-    <script type="module" crossorigin src="./assets/index-BmVamhwk.js"></script>
+    <script type="module" crossorigin src="./assets/index-BG8Y2Inp.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-BdqJsF5o.css">
   </head>
   <body>

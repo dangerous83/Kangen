@@ -8,7 +8,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy:pages": "rm -rf assets && cp index.dev.html index.html && vite build && cp dist/index.html index.html && cp -r dist/assets assets && echo 'Built site copied to repo root. Commit & push to main to publish.'"
+    "deploy:pages": "rm -rf assets && cp index.dev.html index.html && vite build && cp dist/index.html index.html && cp -r dist/assets assets && cp dist/404.html 404.html && cp dist/robots.txt robots.txt && cp dist/sitemap.xml sitemap.xml && echo 'Built site copied to repo root. Commit & push to main to publish.'"
   },
   "dependencies": {
     "framer-motion": "^11.3.19",
